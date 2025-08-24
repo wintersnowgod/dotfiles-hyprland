@@ -1,0 +1,116 @@
+/* Waybar general styling */
+* {
+  border: none;
+  border-radius: 0;
+  font-family: JetBrainsMono Nerd Font, monospace;
+  font-size: 12px;
+  min-height: 0;
+}
+
+window#waybar {
+  background: rgba(25, 25, 35, 0.85);
+  border-bottom: 2px solid #3a3f5a;
+  color: #d0d0d0;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+}
+
+/* Workspaces */
+#workspaces button {
+  padding: 0 8px;
+  color: #a0a0a0;
+  background: transparent;
+  border-radius: 8px;
+  margin: 0 2px;
+  transition: all 0.2s ease-in-out;
+}
+
+#workspaces button:hover {
+  background: rgba(120, 120, 150, 0.2);
+  color: #ffffff;
+}
+
+#workspaces button.active {
+  background: #5865f2;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+/* Left modules */
+#custom-arch,
+#cpu,
+#memory,
+#temperature,
+#network,
+#window {
+  padding: 0 8px;
+  margin: 0 2px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Center modules */
+#workspaces {
+  margin: 0 6px;
+}
+
+/* Right modules */
+#tray,
+#mpris,
+#wireplumber.sink,
+#wireplumber.source,
+#backlight,
+#bluetooth,
+#power-profiles-daemon,
+#battery,
+#clock,
+#idle_inhibitor,
+#custom-updates,
+#custom-swaync,
+#custom-power {
+  padding: 0 8px;
+  margin: 0 2px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Hover effect for right-side modules */
+#tray:hover,
+#mpris:hover,
+#wireplumber.sink:hover,
+#wireplumber.source:hover,
+#backlight:hover,
+#bluetooth:hover,
+#power-profiles-daemon:hover,
+#battery:hover,
+#clock:hover,
+#idle_inhibitor:hover,
+#custom-updates:hover,
+#custom-swaync:hover,
+#custom-power:hover {
+  background: rgba(120, 120, 150, 0.2);
+}
+
+/* Special states */
+#battery.charging {
+  color: #a6e3a1;
+}
+
+#battery.critical:not(.charging) {
+  color: #f38ba8;
+  animation: blink 0.8s infinite alternate;
+}
+
+@keyframes blink {
+  from { opacity: 1; }
+  to { opacity: 0.3; }
+}
+
+#wireplumber.sink.muted,
+#wireplumber.source.muted {
+  color: #f38ba8;
+}
+
+#network.disconnected {
+  color: #f38ba8;
+}

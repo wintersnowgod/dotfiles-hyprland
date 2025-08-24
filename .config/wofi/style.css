@@ -1,0 +1,83 @@
+/* Wofi general styling */
+* {
+    font-family: JetBrainsMono Nerd Font, monospace;
+    font-size: 12px;
+    color: #d0d0d0;
+    background: rgba(25, 25, 35, 0.85);
+    border: none;
+    border-radius: 0;
+}
+
+/* Main container */
+window {
+    background: rgba(25, 25, 35, 0.85);
+    border: 2px solid #3a3f5a;
+    border-radius: 8px;
+    padding: 4px;
+}
+
+/* List items (app entries) */
+listview {
+    spacing: 2px;
+    padding: 2px 4px;
+    border-radius: 8px;
+}
+
+listview row {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 4px 8px;
+    margin: 2px 0;
+    border-radius: 8px;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Hover effect */
+listview row:selected,
+listview row:hover {
+    background: rgba(120, 120, 150, 0.2);
+    color: #ffffff;
+}
+
+/* Active/Focused item */
+listview row:focus {
+    background: #5865f2;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* Icons */
+listview row icon {
+    margin-right: 6px;
+    color: #a0a0a0;
+}
+
+/* Scrollbar styling */
+scrollbar {
+    background: rgba(50, 50, 60, 0.5);
+    border-radius: 4px;
+    width: 8px;
+}
+
+scrollbar slider {
+    background: rgba(88, 101, 242, 0.8);
+    border-radius: 4px;
+}
+
+/* Special states */
+row[data-battery="charging"] {
+    color: #a6e3a1;
+}
+
+row[data-battery="critical"] {
+    color: #f38ba8;
+    animation: blink 0.8s infinite alternate;
+}
+
+row[data-muted="true"] {
+    color: #f38ba8;
+}
+
+@keyframes blink {
+    from { opacity: 1; }
+    to { opacity: 0.3; }
+}
