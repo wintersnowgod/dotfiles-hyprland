@@ -1,6 +1,4 @@
+[wofi]
 allow_images=true
-hide_scroll=false
-no_actions=false
-term=kitty
-mode=drun
 insensitive=true
+close_on_focus_loss=true

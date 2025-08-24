@@ -1,8 +1,7 @@
 /* -----------------------------------------------------------------------------
- *   wofi - Waybar-matching style.css
+ *                                      wofi
  *   ----------------------------------------------------------------------------- */
 
-/* General font & sizing */
 * {
     border: none;
     border-radius: 0;
@@ -11,113 +10,64 @@
     min-height: 0;
 }
 
-/* Window background */
-#main-window,
-window,
-.wofi-window {
-    background: rgba(25, 25, 35, 0.85);
-    color: #d0d0d0;
-    border: 2px solid #3a3f5a;
-    border-radius: 8px;
-    padding: 6px;
+/* Window styling */
+#window {
+background: rgba(25, 25, 35, 0.92);
+color: #d0d0d0;
+border: 2px solid #3a3f5a;
+border-radius: 8px;
 }
 
-/* Search entry */
-#entry,
-entry,
-input[type="text"] {
-    background: rgba(255, 255, 255, 0.05);
-    border: none;
-    border-radius: 6px;
-    padding: 4px 8px;
-    color: #d0d0d0;
-    caret-color: #5865f2;
+/* Input field */
+#input {
+background: rgba(255, 255, 255, 0.08);
+border: none;
+border-radius: 6px;
+padding: 8px 12px;
+color: #d0d0d0;
+caret-color: #5865f2;
+margin-bottom: 8px;
 }
 
-#entry input::placeholder {
+/* Entry items */
+#entry {
+padding: 8px 12px;
+border-radius: 6px;
+background: transparent;
+transition: all 0.15s ease;
 color: #a0a0a0;
 }
 
-/* Results list */
-#rows,
-.results,
-.list {
-    margin-top: 6px;
+/* Selected entry - less intense blue */
+#entry:selected {
+background: #4a5080;
+color: #ffffff;
 }
 
-.row,
-.item,
-.list-item {
-    display: flex;
-    align-items: center;
-    padding: 4px 8px;
-    margin: 2px 0;
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.05);
-    transition: all 0.2s ease-in-out;
-    color: #a0a0a0;
+/* Hover effects */
+#entry:hover {
+background: rgba(90, 90, 120, 0.25);
 }
 
-/* Hover */
-.row:hover,
-.item:hover,
-.list-item:hover {
-    background: rgba(120, 120, 150, 0.2);
-    color: #ffffff;
+/* Image elements */
+#img {
+margin-right: 8px;
 }
 
-/* Selected (active) */
-.row:selected,
-.item:selected,
-.list-item:selected {
-    background: #5865f2;
-    color: #ffffff;
-    font-weight: bold;
+/* Text elements */
+#text {
+color: inherit;
 }
 
-/* Titles and subtitles */
-.row .title,
-.item .title,
-.list-item .title {
-    font-weight: bold;
-    color: inherit;
+/* Expander box */
+#expander-box {
+background: rgba(40, 40, 50, 0.7);
+border-radius: 6px;
+padding: 8px 12px;
+color: #a0a0a0;
 }
 
-.row .subtitle,
-.item .subtitle,
-.list-item .subtitle {
-    font-size: 11px;
-    color: #a0a0a0;
-}
-
-/* Right-aligned meta (if any) */
-.row .meta,
-.item .meta,
-.list-item .meta {
-    margin-left: auto;
-    font-size: 11px;
-    color: #a0a0a0;
-}
-
-/* Empty results */
-.empty,
-.no-results {
-    padding: 12px;
-    text-align: center;
-    color: #a0a0a0;
-}
-
-/* Scrollbar */
-::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
-}
-
-::-webkit-scrollbar-thumb {
-    background: rgba(120, 120, 150, 0.2);
-    border-radius: 3px;
-}
-
-::-webkit-scrollbar-track {
-    background: transparent;
+/* Scroll container */
+#scroll {
+margin: 8px 0;
 }
