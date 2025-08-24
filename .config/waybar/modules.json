@@ -44,7 +44,9 @@
 		"format-icons": {
 			"activated": " ",
 			"deactivated": " "
-		}
+		},
+		"tooltip-format-activated": "Inhibit Sleep: {status}",
+		"tooltip-format-deactivated": "Inhibit Sleep: {status}",
     },
 
     "wireplumber#sink": {
@@ -116,6 +118,8 @@
 	},
 
 	"battery": {
+		"bat": "BAT0",
+		"interval": 1,
 		"states": {
 			"good" : 80,
 			"warning": 20,
@@ -125,7 +129,8 @@
 		"format-full": "{icon} {capacity}%",
 		"format-charging": "󰂄 {capacity}%",
 		"format-plugged": " {capacity}%",
-		"format-alt": "{time} {icon}",
+		"tooltip-format-discharging": "{timeTo}\nCharge Cycles: {cycles}\nBattery Health: {health}%",
+		"tooltip-format-charging": "{timeTo}\nPower Draw {power} watt\nCharge Cycles: {cycles}\nBattery Health: {health}%",
 		"format-icons": [
 			"󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"
 		]
@@ -177,13 +182,7 @@
 		"rotate": 0,
 		"format": "{icon} {percent}%",
 		"format-icons": [
-			"",
-			"",
-			"",
-			"󰃝",
-			"󰃞",
-			"󰃟",
-			"󰃠"
+			"", "", "", "󰃝", "󰃞", "󰃟", "󰃠"
 		],
 		"tooltip-format": "backlight {percent}%",
 		"icon-size": 10,
@@ -226,5 +225,12 @@
 	"on-click-right": "~/.config/waybar/scripts/check-updates.sh --update",
 	"interval": 3600,
 	"signal": 8
-}
+	},
+
+	"custom/cliphist":{
+		"format": "󰨸",
+		"on-click": "pkill wofi || cliphist list | wofi --dmenu | cliphist decode | wl-copy",
+		"on-click-right": "cliphist wipe",
+		"tooltip-format": "Clipboard History\nRight Click: Clear"
+	},
 }

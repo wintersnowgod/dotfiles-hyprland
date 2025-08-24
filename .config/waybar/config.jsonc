@@ -20,6 +20,7 @@
     "modules-right": [
         "custom/updates",
         "idle_inhibitor",
+        "custom/cliphist",
         "tray",
         "mpris",
         "wireplumber#sink",
