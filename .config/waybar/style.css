@@ -65,6 +65,7 @@ window#waybar {
 #battery,
 #clock,
 #idle_inhibitor,
+#custom-cliphist,
 #custom-updates,
 #custom-swaync,
 #custom-power {
@@ -85,6 +86,7 @@ window#waybar {
 #battery:hover,
 #clock:hover,
 #idle_inhibitor:hover,
+#custom-cliphist:hover,
 #custom-updates:hover,
 #custom-swaync:hover,
 #custom-power:hover {
