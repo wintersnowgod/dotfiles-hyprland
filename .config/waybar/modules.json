@@ -10,7 +10,7 @@
 		"format": "{name}",
 		"persistent-workspaces": {
 			"*": 4
-		},
+		}
 	},
 
 	"hyprland/window": {
@@ -46,7 +46,7 @@
 			"deactivated": " "
 		},
 		"tooltip-format-activated": "Inhibit Sleep: {status}",
-		"tooltip-format-deactivated": "Inhibit Sleep: {status}",
+		"tooltip-format-deactivated": "Inhibit Sleep: {status}"
     },
 
     "wireplumber#sink": {
@@ -72,7 +72,7 @@
 	"wireplumber#source": {
 		"node-type": "Audio/Source",
 		"format": "{format_source}",
-		"format": " {volume}%",
+		"format_source": " {volume}%",
 		"format-bluetooth": " {volume}% ",
 		"format-muted": " ",
 		"format-bluetooth-muted": " ",
@@ -232,5 +232,5 @@
 		"on-click": "~/.config/waybar/scripts/cliphist.sh",
 		"on-click-right": "cliphist wipe",
 		"tooltip-format": "Clipboard History\nRight Click: Clear"
-	},
+	}
 }
