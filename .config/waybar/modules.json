@@ -1,8 +1,8 @@
 {
 	"custom/arch": {
 		"format": "󰣇",
-		"on-click": "wofi --show run",
-		"tooltip-format": "Show Run Menu"
+		"on-click": "~/.config/waybar/scripts/wofi.sh",
+		"tooltip-format": "Show Wofi Menu"
 	},
 
 	"hyprland/workspaces": {
@@ -229,7 +229,7 @@
 
 	"custom/cliphist":{
 		"format": "󰨸",
-		"on-click": "pkill wofi || cliphist list | wofi --dmenu | cliphist decode | wl-copy",
+		"on-click": "~/.config/waybar/scripts/cliphist.sh",
 		"on-click-right": "cliphist wipe",
 		"tooltip-format": "Clipboard History\nRight Click: Clear"
 	},
