@@ -2,3 +2,4 @@
 allow_images=true
 insensitive=true
 close_on_focus_loss=true
+prompt=search 
