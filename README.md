@@ -42,6 +42,7 @@ nwg-look \
 pavucontrol \
 swaync \
 switcheroo-control \
+udiskie \
 waybar \
 wofi \
 zsh
@@ -57,4 +58,20 @@ qt5ct-kde \
 qt6ct-kde \
 wlogout \
 wofi-emoji
+```
+
+### Extra pkgs
+- Thumbnails some file types for dolphin  
+(need to enable in dolphin settings after installation)
+```
+sudo pacman -S \
+ffmpegthumbs \
+icoutils \
+kdegraphics-thumbnailers \
+kimageformats \
+libappimage
+```
+```
+yay -S \
+kde-thumbnailer-apk
 ```
