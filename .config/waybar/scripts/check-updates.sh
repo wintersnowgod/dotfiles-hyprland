@@ -66,7 +66,7 @@ FLATPAK_COUNT=$(echo "$FLATPAK" | grep -cve '^\s*$') || FLATPAK_COUNT=0
 TOTAL=$((REPO_COUNT + AUR_COUNT + FLATPAK_COUNT))
 
 if [[ $TOTAL -eq 0 ]]; then
-    echo '{ "text": "󰚰 0", "tooltip": "System is up to date ✨\nScroll up to check for updates\nMiddle click to update system" }'
+    echo '{ "text": "󰚰 0", "tooltip": "System is up to date ✨\nLeft Click to check for updates\nRight Click to update system" }'
     exit 0
 fi
 
