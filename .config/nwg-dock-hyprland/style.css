@@ -1,0 +1,52 @@
+@define-color accent #4a5080;
+@define-color accent-hover #6a77b2;
+@define-color bg-win rgba(25,25,35,0.85);
+@define-color bg-card rgba(120,120,150,0.2);
+@define-color bg-hover rgba(40,40,46,0.95);
+@define-color border rgba(255,255,255,0.12);
+@define-color text #e8e8ea;
+@define-color text-dim #b8b8be;
+
+window {
+	background: @bg-win;
+	border-radius: 10px;
+	border-style: none;
+	border-width: 1px;
+	border-color: @border;
+}
+
+#box {
+/* Surrounding box for icons */
+padding: 10px;
+}
+
+#active {
+/* Underline for the currently active window */
+border-bottom: solid 1px;
+border-color: @accent;
+}
+
+button, image {
+	background: none;
+	border-style: none;
+	box-shadow: none;
+	color: @text-dim;
+}
+
+button {
+	padding: 4px;
+	margin-left: 4px;
+	margin-right: 4px;
+	color: @text;
+	font-size: 12px;
+}
+
+button:hover {
+	background-color: @bg-hover;
+	border-radius: 2px;
+	color: @accent-hover;
+}
+
+button:focus {
+	box-shadow: none;
+}

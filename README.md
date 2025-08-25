@@ -37,6 +37,7 @@ kate \
 kio-admin \
 kitty \
 loupe \
+nwg-dock-hyprland \
 nwg-look \
 pavucontrol \
 swaync \
