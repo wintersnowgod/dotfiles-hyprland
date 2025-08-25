@@ -2,8 +2,8 @@
  *          Modern Dark
  * ─────────────────────────────── */
 
-@define-color accent #4a5080;
-@define-color accent-hover #6a77b2;
+@define-color accent #5865f2;
+@define-color accent-hover #2be0c5;
 @define-color bg-win rgba(25,25,35,0.85);
 @define-color bg-card rgba(120,120,150,0.2);
 @define-color bg-hover rgba(40,40,46,0.95);
