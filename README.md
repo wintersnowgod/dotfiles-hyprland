@@ -39,13 +39,18 @@ kitty \
 loupe \
 nwg-dock-hyprland \
 nwg-look \
+pacman-contrib \
 pavucontrol \
 swaync \
-switcheroo-control \
+ttf-hack-nerd \
 udiskie \
 waybar \
 wofi \
-zsh
+zsh \
+zsh-autocomplete \
+zsh-autosuggestions \
+zsh-completions \
+zsh-syntax-highlighting \
 ```
 ### AUR pkgs
 ```
