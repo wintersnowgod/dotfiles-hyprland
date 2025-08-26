@@ -2,7 +2,7 @@
 My dotfiles for hyprland in Arch Linux
 
 ## Preview
-<img width="1920" height="1080" alt="2025-08-24-133922_hyprshot" src="https://github.com/user-attachments/assets/f9d143aa-9166-4b6b-895a-b30532e8603e" />
+<img width="1920" height="1080" alt="Screenshot-Full" src="Images/Screenshot-Full.png" />
 
 ## Instructions
 1. Make a backup of your dotfiles.
