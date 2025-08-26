@@ -116,3 +116,19 @@ window#waybar {
 #network.disconnected {
   color: #f38ba8;
 }
+
+@keyframes blink-update {
+	to {
+		background-color: dodgerblue;
+	}
+}
+
+#custom-updates {
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+#custom-updates.pending-updates {
+	animation-name: blink-update;
+	animation-duration: 3s;
+}
