@@ -218,13 +218,16 @@
 	},
 
 	"custom/updates": {
-	"format": "{}",
-	"return-type": "json",
-	"exec": "~/.config/waybar/scripts/check-updates.sh",
-	"on-click": "~/.config/waybar/scripts/check-updates.sh --refresh",
-	"on-click-right": "~/.config/waybar/scripts/check-updates.sh --update",
-	"interval": 3600,
-	"signal": 8
+		"format": "{icon}{0}",
+		"return-type": "json",
+		"format-icons": {
+			"pending-updates": " ",
+			"updated": ""
+		},
+		"exec-if": "which waybar-updates",
+ 		"exec": "waybar-updates --flatpak --devel --notify --tooltip {}",
+		"on-click": "waybar-updates --flatpak --devel --notify --tooltip {}",
+		"on-click-right": "kitty $HOME/.config/waybar/scripts/update-pkgs.sh"
 	},
 
 	"custom/cliphist":{
