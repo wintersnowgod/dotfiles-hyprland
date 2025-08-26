@@ -4,7 +4,7 @@
 # Config: Set your AUR helper here (paru, yay, or empty if none)
 AUR_HELPER="yay"
 # {} is AUR_HELPER leave it unchanged. just add the required flags after it
-AUR_UPGRADE_CMD="{} -Sua --needed --answerupgrade None --answerclean All --answerdiff None --noremovemake --sudoloop --noconfirm --mflags \"--noconfirm\""
+AUR_UPGRADE_CMD="{} -Sua --needed --answerupgrade None --answerclean All --answerdiff None --noremovemake --cleanafter --sudoloop --noconfirm --mflags \"--noconfirm\""
 
 # Colors for output
 RED='\033[31m'
@@ -36,8 +36,15 @@ print_finished() {
 
 update_arch() {
   print_msg "Updating Arch repo packages..."
-  if sudo pacman -Syu --noconfirm; then
+  (
+    trap 'exit 130' INT  # if Ctrl-C pressed inside, return exit code 130
+    sudo pacman -Syu --noconfirm
+  )
+  status=$?
+  if [[ $status -eq 0 ]]; then
     print_done "Arch repo packages updated"
+  elif [[ $status -eq 130 ]]; then
+    print_error "Arch repo update interrupted"
   else
     print_error "Failed to update Arch repo packages"
   fi
@@ -46,13 +53,16 @@ update_arch() {
 update_aur() {
   if [[ -n "$AUR_HELPER" && $(command -v "$AUR_HELPER") ]]; then
     print_msg "Updating AUR packages with $AUR_HELPER..."
-
-    # Replace {} with AUR_HELPER in AUR_UPGRADE_CMD
     local cmd="${AUR_UPGRADE_CMD//\{\}/$AUR_HELPER}"
-
-    # Run the command
-    if eval "$cmd"; then
+    (
+      trap 'exit 130' INT
+      eval "$cmd"
+    )
+    status=$?
+    if [[ $status -eq 0 ]]; then
       print_done "AUR packages updated"
+    elif [[ $status -eq 130 ]]; then
+      print_error "AUR update interrupted"
     else
       print_error "Failed to update AUR packages"
     fi
@@ -64,8 +74,15 @@ update_aur() {
 update_flatpak() {
   if command -v flatpak >/dev/null; then
     print_msg "Updating Flatpak packages..."
-    if flatpak update -y; then
+    (
+      trap 'exit 130' INT
+      flatpak update -y
+    )
+    status=$?
+    if [[ $status -eq 0 ]]; then
       print_done "Flatpak packages updated"
+    elif [[ $status -eq 130 ]]; then
+      print_error "Flatpak update interrupted"
     else
       print_error "Failed to update Flatpak packages"
     fi
@@ -80,11 +97,14 @@ main() {
   update_flatpak
   print_finished "Press any key to EXIT"
   read -r
+  exit 0
 }
-# Only run main when this script is called directly, *not* inside systemd-inhibit call recursion
-if [[ $INHIBITED != "yes" ]]; then
-  export INHIBITED="yes"
-  UPGRADE_PROGRESS="System update running"
-  exec systemd-inhibit --what=idle:sleep:shutdown --who="Update Packages" --why="$UPGRADE_PROGRESS" "$0"
+
+# Prevent system from sleeping down during the update process
+if [[ -z "$INHIBIT_WRAPPER" ]]; then
+  exec systemd-inhibit --what=shutdown:sleep --who="System Update" \
+    --why="Prevent shutdown/sleep during system upgrade" \
+    env INHIBIT_WRAPPER=1 "$0" "$@"
 fi
+
 main
