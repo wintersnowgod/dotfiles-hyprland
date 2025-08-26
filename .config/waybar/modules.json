@@ -71,11 +71,11 @@
 
 	"wireplumber#source": {
 		"node-type": "Audio/Source",
-		"format": "{format_source}",
-		"format_source": " {volume}%",
-		"format-bluetooth": " {volume}% ",
+		"format": "{icon} {volume}%",
+		"format-bluetooth": "{icon} {volume}% ",
 		"format-muted": " ",
 		"format-bluetooth-muted": " ",
+		"format-icons": [ "" ] ,
 		"on-click": "pavucontrol -t 4",
 		"max-volume": 100,
 		"on-click-right": "wpctl set-mute @DEFAULT_SOURCE@ toggle"
