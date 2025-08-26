@@ -226,7 +226,6 @@
 		},
 		"exec-if": "which waybar-updates",
  		"exec": "waybar-updates --flatpak --devel --notify --tooltip {}",
-		"on-click": "waybar-updates --flatpak --devel --notify --tooltip {}",
 		"on-click-right": "kitty $HOME/.config/waybar/scripts/update-pkgs.sh"
 	},
 
