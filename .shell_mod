@@ -1,0 +1,44 @@
+#!/bin/bash
+#
+# ~/.bash_mod
+#
+
+if [[ $0 == /usr/bin/bash ]] || [[ $0 == /bin/bash ]] || [[ $0 == bash ]]; then
+  # Shell Prompt
+  OS_ICON= # Replace this with your OS icon (need ttf-hack-nerd)
+  PS1="\n \
+\[\033[0;34m\]╭─\[\033[0;31m\]\[\033[0;37m\]\[\033[41m\] $OS_ICON \u@\h \[\033[0m\]\[\033[0;31m\]\[\033[44m\]\[\033[0;34m\]\[\033[44m\]\[\033[0;30m\]\[\033[44m\] \w \[\033[0m\]\[\033[0;34m\] \n \
+\[\033[0;34m\]╰ \[\033[1;36m\]\$ \[\033[0m\]"
+
+  #History
+  export HISTFILESIZE=100000
+  export HISTSIZE=100000
+  export HISTTIMEFORMAT="%F %T "
+
+fi
+
+# Fcitx
+if command -v fcitx5 >/dev/null 2>&1; then
+  if [ "$XDG_SESSION_TYPE" = "x11" ]; then
+    if [[ "$GTK_IM_MODULE" != fcitx ]] || [[ "$QT_IM_MODULE" != fcitx ]] || [[ "$GLFW_IM_MODULE" != ibus ]] || [[ "$SDL_IM_MODULE" != fcitx ]]; then
+      export GTK_IM_MODULE=fcitx
+      export QT_IM_MODULE=fcitx
+      export GLFW_IM_MODULE=ibus
+      export SDL_IM_MODULE=fcitx
+    fi
+  fi
+  if [[ "$XMODIFIERS" != @im=fcitx ]]; then
+    export XMODIFIERS=@im=fcitx
+  fi
+fi
+
+# PATH (Add more path after like this export PATH=$PATH:"path1":"path2":"path3")
+export PATH=$PATH:"$HOME/ForinRosl/Linux/git/Personal/bin/":"/home/rosl/ForinRosl/Linux/git/Personal/Menu/Menu/"
+
+# ENV
+export EDITOR='nvim'
+export VISUAL='nvim'
+export MANPAGER='nvim +Man!'
+
+# Exec
+fastfetch

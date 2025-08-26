@@ -1,0 +1,104 @@
+#!/bin/bash
+# Alias eg:- if ! command -v (command) > /dev/null 2>&1; then (if) alias (command)=""; fi (; fi)
+# Original .bashrc
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+
+# Bash related stuff
+if ! command -v ll >/dev/null 2>&1; then alias ll='ls -alh --group-directories-first'; fi
+if ! command -v reload >/dev/null 2>&1; then alias reload='if [[ -n $BASH_VERSION ]]; then source $HOME/.bashrc; elif [[ -n $ZSH_VERSION ]]; then source $HOME/.zshrc; fi'; fi
+if ! command -v ff >/dev/null 2>&1; then alias ff='fastfetch'; fi
+if ! command -v c >/dev/null 2>&1; then alias c='clear'; fi
+if ! command -v startupwmclass >/dev/null 2>&1; then alias startupwmclass='xprop | grep WM_CLASS'; fi
+
+#getcap root permission thingy idk had to do for nekoray and intel gpu top so to list them i made this
+if ! command -v cap >/dev/null 2>&1; then alias cap='getcap -r /'; fi
+
+#TOR Socks5 Proxy
+if ! command -v torsocks >/dev/null 2>&1; then alias torsocks='export http_proxy="socks5://127.0.0.1:9050" && HTTP_PROXY="socks5://127.0.0.1:9050" && https_proxy="socks5://127.0.0.1:9050" && HTTPS_PROXY="socks5://127.0.0.1:9050"'; fi
+
+# Boot related stuff
+if ! command -v bootinfo >/dev/null 2>&1; then alias bootinfo='cat /proc/cmdline'; fi
+if ! command -v install-grub >/dev/null 2>&1; then alias install-grub='sudo grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB --modules="tpm" --disable-shim-lock'; fi
+if ! command -v update-grub >/dev/null 2>&1; then alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'; fi
+
+# Remount /tmp to 8 gigs
+if ! command -v tmp >/dev/null 2>&1; then alias tmp='sudo mount -o remount,size=8G /tmp/'; fi
+
+# plasma related stuff
+if ! command -v plasma >/dev/null 2>&1; then alias plasma='systemctl --user restart plasma-plasmashell.service'; fi
+if ! command -v rebuild-plasma-menu-apps >/dev/null 2>&1; then if command -v kbuildsycoca6 >/dev/null 2>&1; then alias rebuild-plasma-menu-apps='kbuildsycoca6'; elif command -v kbuildsycoca5 >/dev/null 2>&1; then alias rebuild-plasma-menu-apps='kbuildsycoca5'; fi; fi
+
+# Sbctl
+if ! command -v signall >/dev/null 2>&1; then alias signall="sudo sbctl verify | sudo sed 's/✗ /sbctl sign -s /e'"; fi
+if ! command -v unsignall >/dev/null 2>&1; then alias unsignall="sudo sbctl verify | sudo sed 's/✓ /sbctl remove-file /e'"; fi
+
+# Systemctl
+if ! command -v reboot-recovery >/dev/null 2>&1; then alias reboot-recovery='systemctl reboot --firmware-setup'; fi
+
+#mpv
+if ! command -v mpv-video >/dev/null 2>&1; then alias mpv-video='mpv --vo=gpu --ao=alsa --script-opts=ytdl_hook-ytdl_path=/usr/bin/yt-dlp'; fi
+
+#timeshift
+if ! command -v delete-snapshots >/dev/null 2>&1; then alias delete-snapshots='sudo timeshift --delete-all'; fi
+
+# Packages related stuff
+# Update mirrorlist
+if ! command -v mirrorlist >/dev/null 2>&1; then alias mirrorlist='curl -s https://archlinux.org/mirrorlist/all/ | sed -e "s/^#Server/Server/" -e "/^#/d" | sudo rankmirrors -n 5 -'; fi
+
+# GIT
+if ! command -v gitinfo >/dev/null 2>&1; then alias gitinfo='echo "r$(git rev-list master | wc -l).$(git rev-parse --short HEAD)"'; fi
+
+# Makepkg
+if ! command -v srcinfo >/dev/null 2>&1; then alias srcinfo='if [[ -f PKGBUILD ]]; then makepkg --printsrcinfo > .SRCINFO; else echo "No PKGBUILD file found!"; fi'; fi
+if ! command -v fixchecksum >/dev/null 2>&1; then alias fixchecksum='if [[ -f PKGBUILD ]]; then makepkg -g >> PKGBUILD; else echo "No PKGBUILD file found!"; fi'; fi
+
+# Check owner of package
+if ! command -v owner >/dev/null 2>&1; then alias owner='pacman -Qo'; fi
+
+# Search packages
+if ! command -v s >/dev/null 2>&1; then if command -v "yay" >/dev/null 2>&1; then alias s='yay -Ss'; else alias s="pacman -Ss"; fi; fi
+if ! command -v si >/dev/null 2>&1; then if command -v "yay" >/dev/null 2>&1; then alias si='yay -Si'; else alias si="pacman -Si"; fi; fi
+
+# Search installed Packages
+if ! command -v q >/dev/null 2>&1; then alias q='pacman -Q | grep'; fi
+if ! command -v qe >/dev/null 2>&1; then alias qe='pacman -Qe | grep'; fi
+if ! command -v qq >/dev/null 2>&1; then alias qq='pacman -Qq | grep'; fi
+if ! command -v qs >/dev/null 2>&1; then alias qs='pacman -Qs'; fi
+if ! command -v qi >/dev/null 2>&1; then alias qi='pacman -Qi'; fi
+if ! command -v lf >/dev/null 2>&1; then alias lf='flatpak list --columns=application --app | grep -v "Appkication ID"'; fi
+
+# List orphans
+if ! command -v orphan >/dev/null 2>&1; then alias orphan='pacman -Qdtq | grep -v debug'; fi
+if ! command -v orphand >/dev/null 2>&1; then alias orphand='pacman -Qdtq | grep debug'; fi
+
+#check updates
+if ! command -v checkupdatesyay >/dev/null 2>&1; then alias checkupdatesyay='yay -Qu --devel'; fi
+
+# Upgrade/Install packages
+if ! command -v uwu >/dev/null 2>&1; then if command -v "yay" >/dev/null 2>&1; then alias uwu='"yay" --needed --answerupgrade None --answerclean All --answerdiff None --noremovemake --cleanafter --sudoloop --noconfirm --mflags "--noconfirm"'; else alias uwu='sudo pacman -Syu'; fi; fi
+if ! command -v uwu-devel >/dev/null 2>&1; then if command -v "yay" >/dev/null 2>&1; then alias uwu-devel='"yay" --needed --answerupgrade None --answerclean All --answerdiff None --noremovemake --cleanafter --devel --sudoloop --noconfirm --mflags "--noconfirm"'; fi; fi
+if ! command -v uwu-nc >/dev/null 2>&1; then if command -v "yay" >/dev/null 2>&1; then alias uwu-nc='"yay" --needed --answerupgrade None --answerclean All --answerdiff None --noremovemake --cleanafter --devel --sudoloop --noconfirm --mflags "--noconfirm --nocheck"'; fi; fi
+if ! command -v uwu-nc-devel >/dev/null 2>&1; then if command -v "yay" >/dev/null 2>&1; then alias uwu-nc-devel='"yay" --needed --answerupgrade None --answerclean All --answerdiff None --noremovemake --cleanafter --devel --sudoloop --noconfirm --mflags "--noconfirm --nocheck"'; fi; fi
+
+#generate git database
+if ! command -v "yaygitdatagen" >/dev/null 2>&1; then alias yaygitdatagen="yay -Y --gendb"; fi
+
+# Uninstall packages
+if ! command -v fuck >/dev/null 2>&1; then if command -v "yay" >/dev/null 2>&1; then alias fuck='yay -Rns'; else alias fuck='sudo pacman -Rns'; fi; fi
+
+#pacdiff
+if ! command -v pdiff >/dev/null 2>&1; then alias pdiff='pacdiff -o'; fi
+
+# Clean PKG Cache
+if ! command -v cleanpkg >/dev/null 2>&1; then if command -v "yay" >/dev/null 2>&1; then alias cleanpkg='yes | yay -Scc'; else alias cleanpkg='yes | sudo pacman -Scc'; fi; fi
+
+# Show bash history
+if ! command -v his >/dev/null 2>&1; then alias his='history | grep'; fi
+
+# View full list of installed packages. though some packages arent shown because t option hides the dependencies.
+if ! command -v repo >/dev/null 2>&1; then alias repo='pacman -Qenq'; fi
+if ! command -v aur >/dev/null 2>&1; then alias aur='pacman -Qemq'; fi
+
+#Looking glass
+if ! command -v looking-glass >/dev/null 2>&1; then alias looking-glass='looking-glass-client -f /dev/kvmfr0 -a'; fi
