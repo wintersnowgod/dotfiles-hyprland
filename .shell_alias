@@ -11,8 +11,8 @@ if ! command -v ff >/dev/null 2>&1; then alias ff='fastfetch'; fi
 if ! command -v c >/dev/null 2>&1; then alias c='clear'; fi
 if ! command -v startupwmclass >/dev/null 2>&1; then alias startupwmclass='xprop | grep WM_CLASS'; fi
 
-#getcap root permission thingy idk had to do for nekoray and intel gpu top so to list them i made this
-if ! command -v cap >/dev/null 2>&1; then alias cap='getcap -r /'; fi
+# shizuku
+if ! command -v shizuku-start >/dev/null 2>&1; then alias shizuku-start='adb shell sh /storage/emulated/0/Android/data/moe.shizuku.privileged.api/start.sh';fi
 
 #TOR Socks5 Proxy
 if ! command -v torsocks >/dev/null 2>&1; then alias torsocks='export http_proxy="socks5://127.0.0.1:9050" && HTTP_PROXY="socks5://127.0.0.1:9050" && https_proxy="socks5://127.0.0.1:9050" && HTTPS_PROXY="socks5://127.0.0.1:9050"'; fi
