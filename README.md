@@ -53,7 +53,7 @@ zsh \
 zsh-autocomplete \
 zsh-autosuggestions \
 zsh-completions \
-zsh-syntax-highlighting \
+zsh-syntax-highlighting
 ```
 ### AUR pkgs
 ```
@@ -65,7 +65,6 @@ oh-my-zsh-powerline-theme-git \
 qt5ct-kde \
 qt6ct-kde \
 waybar-update \
-wlogout \
 wofi-emoji
 ```
 
