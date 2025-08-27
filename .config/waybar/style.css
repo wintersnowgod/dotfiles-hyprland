@@ -101,12 +101,17 @@ window#waybar {
 }
 
 /* Special states */
+/* menu */
+#custom-arch {
+  color: blue;
+}
+
 /* Battery */
 #battery.charging {
   color: lightgreen;
 }
 #battery.full {
-  color: darkgreen;
+  color: green;
 }
 #battery.discharging {
   color: white
@@ -195,24 +200,44 @@ color: purple;
 }
 
 /* Sliders */
-#pulseaudio-slider slider,
+/* Audio */
+#wireplumber.sink,
+#wireplumber.source {
+  color: lightgreen;
+}
+#pulseaudio-slider slider {
+  border-radius: 50%;
+}
+#pulseaudio-slider trough {
+  min-height: 2px;
+  min-width: 80px;
+  border-radius: 5px;
+  background-color: gray;
+}
+#pulseaudio-slider highlight {
+  min-width: 10px;
+  border-radius: 5px;
+  background-color: lightgreen;
+}
+
+/* Backlight */
+#backlight {
+  color:yellow;
+}
 #backlight-slider slider {
   border-radius: 50%;
 }
-#pulseaudio-slider trough,
 #backlight-slider trough {
   min-height: 2px;
   min-width: 80px;
   border-radius: 5px;
   background-color: gray;
 }
-#pulseaudio-slider highlight,
 #backlight-slider highlight {
   min-width: 10px;
   border-radius: 5px;
-  background-color: white;
+  background-color: yellow;
 }
-
 /* Power Menu */
 #power {
   border-radius: 8px;
@@ -221,7 +246,6 @@ color: purple;
   background: rgba(120, 120, 150, 0.2);
 }
 #custom-reboot,
-#custom-hibernate,
 #custom-quit,
 #custom-suspend,
 #custom-lock,
@@ -231,7 +255,6 @@ color: purple;
   border-radius: 8px;
 }
 #custom-reboot:hover,
-#custom-hibernate:hover,
 #custom-quit:hover,
 #custom-suspend:hover,
 #custom-lock:hover,
