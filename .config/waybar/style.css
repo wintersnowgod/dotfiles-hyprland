@@ -49,6 +49,15 @@ window#waybar {
   background: rgba(255, 255, 255, 0.05);
 }
 
+#custom-arch:hover,
+#cpu:hover,
+#memory:hover,
+#temperature:hover,
+#network:hover,
+#window:hover {
+  background: rgba(120, 120, 150, 0.2);
+}
+
 /* Center modules */
 #workspaces {
   margin: 0 6px;
@@ -57,12 +66,11 @@ window#waybar {
 /* Right modules */
 #tray,
 #mpris,
-#wireplumber.sink,
-#wireplumber.source,
-#backlight,
+#privacy,
+#audio,
+#brightness,
 #bluetooth,
-#power-profiles-daemon,
-#battery,
+#batterypower,
 #clock,
 #idle_inhibitor,
 #custom-cliphist,
@@ -78,12 +86,11 @@ window#waybar {
 /* Hover effect for right-side modules */
 #tray:hover,
 #mpris:hover,
-#wireplumber.sink:hover,
-#wireplumber.source:hover,
-#backlight:hover,
+#privacy:hover,
+#audio:hover,
+#brightness:hover,
 #bluetooth:hover,
-#power-profiles-daemon:hover,
-#battery:hover,
+#batterypower:hover,
 #clock:hover,
 #idle_inhibitor:hover,
 #custom-cliphist:hover,
@@ -94,41 +101,140 @@ window#waybar {
 }
 
 /* Special states */
+/* Battery */
 #battery.charging {
-  color: #a6e3a1;
+  color: lightgreen;
 }
-
-#battery.critical:not(.charging) {
-  color: #f38ba8;
+#battery.full {
+  color: darkgreen;
+}
+#battery.discharging {
+  color: white
+}
+#battery.discharging.good {
+  color: gray;
+}
+#battery.discharging.warning {
+  color: orange;
+  animation: blink 3s infinite alternate;
+}
+#battery.discharging.critical {
+  color: red;
   animation: blink 0.8s infinite alternate;
 }
-
 @keyframes blink {
   from { opacity: 1; }
   to { opacity: 0.3; }
 }
 
+/* Sound */
 #wireplumber.sink.muted,
 #wireplumber.source.muted {
-  color: #f38ba8;
+  color: red;
 }
 
+/* Bluetooth */
+#bluetooth.disabled,
+#bluetooth.off,
+#bluetooth.no-controller {
+  color: red;
+}
+#bluetooth.on,
+#bluetooth.connected,
+#bluetooth.discoverable,
+#bluetooth.discovering,
+#bluetooth.pairable {
+  color: blue;
+}
+
+/* Network */
 #network.disconnected {
-  color: #f38ba8;
+  color: red;
 }
 
+/* mpris */
+#mpris.stopped {
+  color: red;
+}
+#mpris.paused,
+#mpris.playing {
+  color: gray;
+}
+#mpris.brave,
+#mpris.firefox,
+#mpris.vlc {
+  color: orange;
+}
+#mpris.spotify {
+  color: green;
+}
+#mpris.mpv {
+color: purple;
+}
+#mpris.kdeconnect {
+  color: lightblue;
+}
+
+/* Updates */
 @keyframes blink-update {
-	to {
-		background-color: dodgerblue;
-	}
+  to {
+      color: yellow;
+  }
 }
-
 #custom-updates {
-	animation-timing-function: linear;
-	animation-iteration-count: infinite;
-	animation-direction: alternate;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 #custom-updates.pending-updates {
-	animation-name: blink-update;
-	animation-duration: 3s;
+  animation-name: blink-update;
+  animation-duration: 3s;
+}
+#custom-updates.updated {
+  color: green;
+}
+
+/* Sliders */
+#pulseaudio-slider slider,
+#backlight-slider slider {
+  border-radius: 50%;
+}
+#pulseaudio-slider trough,
+#backlight-slider trough {
+  min-height: 2px;
+  min-width: 80px;
+  border-radius: 5px;
+  background-color: gray;
+}
+#pulseaudio-slider highlight,
+#backlight-slider highlight {
+  min-width: 10px;
+  border-radius: 5px;
+  background-color: white;
+}
+
+/* Power Menu */
+#power {
+  border-radius: 8px;
+}
+#power:hover{
+  background: rgba(120, 120, 150, 0.2);
+}
+#custom-reboot,
+#custom-hibernate,
+#custom-quit,
+#custom-suspend,
+#custom-lock,
+#custom-shutdown {
+  padding: 0 12px;
+  margin: 0 2px;
+  border-radius: 8px;
+}
+#custom-reboot:hover,
+#custom-hibernate:hover,
+#custom-quit:hover,
+#custom-suspend:hover,
+#custom-lock:hover,
+#custom-shutdown:hover {
+  background: rgba(120, 120, 150, 0.2);
 }

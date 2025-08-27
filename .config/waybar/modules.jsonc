@@ -1,0 +1,365 @@
+{
+	"custom/arch": {
+		"format": "󰣇",
+		"on-click": "~/.config/waybar/scripts/wofi.sh",
+		"tooltip-format": "Show Wofi Menu"
+	},
+
+	"hyprland/workspaces": {
+		"all-outputs": true,
+		"format": "{name}",
+		"persistent-workspaces": {
+			"*": 4
+		}
+	},
+
+	"hyprland/window": {
+		"format": "{class}",
+		"icon": true
+	},
+
+	"tray": {
+		"icon-size": 20,
+		"spacing": 4
+	},
+
+	"idle_inhibitor": {
+		"format": "{icon}",
+		"format-icons": {
+			"activated": " ",
+			"deactivated": " "
+		},
+		"tooltip-format-activated": "Inhibit Sleep: {status}",
+		"tooltip-format-deactivated": "Inhibit Sleep: {status}"
+	},
+
+	"cpu": {
+		"format": " {usage}%",
+		"on-click": "kitty htop"
+	},
+
+	"memory": {
+		"format": " {}%",
+		"on-click": "kitty htop"
+	},
+
+	"temperature": {
+		"interval": 10,
+		"critical-threshold": 100,
+		"format-critical": " {temperatureC}",
+		"format": " {temperatureC}°C",
+		"on-click": "kitty htop"
+	},
+
+	"network#speed": {
+		"interval": 1,
+		"format": "{ifname}",
+		"format-alt":"{icon} ",
+		"format-wifi": "{icon}   {bandwidthUpBytes}  {bandwidthDownBytes}",
+		"format-ethernet": "󰌘  {bandwidthUpBytes}  {bandwidthDownBytes}",
+		"format-disconnected": "󰌙",
+		"tooltip-format": "{ipaddr}",
+		"format-linked": "󰈁 {ifname} (No IP)",
+		"tooltip-format-wifi": "{essid} {icon} {signalStrength}%",
+		"tooltip-format-ethernet": "{ifname} 󰌘",
+		"tooltip-format-disconnected": "󰌙 Disconnected",
+		"format-icons": [
+			"󰤯", "󰤟", "󰤢", "󰤥", "󰤨"
+		],
+		"on-click-right": "kitty nmtui"
+	},
+
+	"bluetooth": {
+		"format": "",
+		"format-on": "",
+		"format-disabled": "󰂳",
+		"format-off": "󰂳",
+		"format-no-controller": "󰂳",
+		"format-connected": "󰂱 {num_connections}",
+		"tooltip-format": " {device_alias}",
+		"tooltip-format-connected": "{device_enumerate}",
+		"tooltip-format-enumerate-connected": " {device_alias}",
+		"tooltip-format-enumerate-connected-battery": " {device_alias}\t󰂄 {device_battery_percentage}%",
+		"tooltip-format-on": "No devices Connected",
+		"tooltip-format-off": "Bluetooth is turned Off",
+		"tooltip-format-disabled":"Bluetooth Controller is Disabled",
+		"on-click": "blueman-manager",
+		"on-click-right": "~/.config/waybar/scripts/bluetooth-toggle.sh"
+	},
+
+	"privacy": {
+		"icon-spacing": 4,
+		"icon-size": 12,
+		"transition-duration": 250,
+		"modules": [
+			{
+				"type": "screenshare",
+				"tooltip": true,
+				"tooltip-icon-size": 24
+			},
+			{
+				"type": "audio-out",
+				"tooltip": true,
+				"tooltip-icon-size": 24
+			},
+			{
+				"type": "audio-in",
+				"tooltip": true,
+				"tooltip-icon-size": 24
+			}
+		]
+	},
+
+	"mpris": {
+		"interval": 1,
+		"format": "{player_icon}",
+		"format-paused": "{status_icon}",
+		"on-click": "playerctl play-pause",
+		"on-scroll-up": "playerctl previous",
+		"on-scroll-down": "playerctl next",
+		"scroll-step": 5.0,
+		"smooth-scrolling-threshold": 1,
+		"player-icons": {
+			"chromium": "",
+			"brave": "󱢼",
+			"default": "",
+			"firefox": "",
+			"kdeconnect": "",
+			"mopidy": "",
+			"mpv": "󰐹",
+			"spotify": "",
+			"vlc": "󰕼"
+		},
+		"status-icons": {
+			"paused": "⏸",
+			"playing": "",
+			"stopped": ""
+		}
+	},
+
+// Audio
+	"group/audio": {
+		"orientation": "inherit",
+		"drawer": {
+			"children-class": "audio-child",
+			"transition-duration": 500,
+			"transition-left-to-right": true
+		},
+		"modules": [
+			"wireplumber#sink",
+			"pulseaudio/slider",
+			"wireplumber#source"
+		]
+	},
+	"pulseaudio/slider": {
+		"min": 0,
+		"max": 100,
+		"orientation": "horizontal"
+	},
+    "wireplumber#sink": {
+		"node-type": "Audio/Sink",
+		"format": "{icon} {volume}%",
+		"format-bluetooth": "{icon} {volume}% ",
+		"format-bluetooth-muted": "󰝟 ",
+		"format-muted": "󰝟 ",
+		"format-icons": {
+			"headphone": "",
+			"hands-free": "",
+			"headset": "",
+			"phone": "",
+			"portable": "",
+			"car": "",
+			"default": ["", "", ""]
+		},
+		"max-volume": 100,
+		"on-click": "wpctl set-mute @DEFAULT_SINK@ toggle",
+		"on-click-right": "pavucontrol -t 1"
+	},
+	"wireplumber#source": {
+		"node-type": "Audio/Source",
+		"format": "{icon} {volume}%",
+		"format-bluetooth": "{icon} {volume}% ",
+		"format-muted": " ",
+		"format-bluetooth-muted": " ",
+		"format-icons": [ "" ] ,
+		"max-volume": 100,
+		"on-click": "wpctl set-mute @DEFAULT_SOURCE@ toggle",
+		"on-click-right": "pavucontrol -t 4"
+	},
+
+// Battery
+	"group/batterypower": {
+		"orientation": "inherit",
+		"drawer": {
+			"transition-duration": 500,
+			"transition-left-to-right": false
+		},
+		"modules": [
+			"battery",
+			"power-profiles-daemon"
+
+		]
+	},
+	"power-profiles-daemon": {
+		"format": "{icon}",
+		"tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+		"format-icons": {
+			"default": " ",
+			"performance": "  ",
+			"balanced": "  ",
+			"power-saver": "  "
+		}
+	},
+	"battery": {
+		"interval": 1,
+		"states": {
+			"finished": 100,
+			"good" : 80,
+			"warning": 20,
+			"critical": 10
+		},
+		"format": "{icon} {capacity}%",
+		"format-charging": "󰂄 {capacity}%",
+		"format-full": "󰂄 {capacity}%",
+		"format-plugged": " {capacity}%",
+		"tooltip-format-discharging": "{timeTo}\nCharge Cycles: {cycles}\nBattery Health: {health}%",
+		"tooltip-format-charging": "{timeTo}\nPower Draw {power} watt\nCharge Cycles: {cycles}\nBattery Health: {health}%",
+		"tooltip-format-full": "{timeTo}\nUnplug the charger!!\nCharge Cycles: {cycles}\nBattery Health: {health}%",
+
+		"format-icons": [
+			"󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"
+		]
+	},
+
+	"clock": {
+		"format": "{:%I:%M %p}",
+		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+		"format-alt": "{:%Y-%m-%d}"
+	},
+
+// Power
+	"group/power": {
+		"orientation": "inherit",
+		"drawer": {
+			"transition-duration": 500,
+			"transition-left-to-right": true
+		},
+		"modules": [
+			"custom/power",
+			"custom/shutdown",
+			"custom/reboot",
+			"custom/quit",
+			"custom/lock",
+			"custom/hibernate",
+			"custom/suspend"
+		]
+	},
+	"custom/quit": {
+		"format": "󰗼",
+		"tooltip-format": "Log Out",
+		"on-click": "hyprctl dispatch exit"
+	},
+	"custom/lock": {
+		"format": "󰍁",
+		"tooltip-format": "Lock Session",
+		"on-click": "hyprlock &"
+	},
+	"custom/suspend": {
+		"format": "󰒲",
+		"tooltip-format": "Suspend",
+		"on-click": "systemctl suspend"
+	},
+	"custom/hibernate": {
+		"format": "󰤄",
+		"tooltip-format": "Hibernate",
+		"on-click": "systemctl hibernate"
+	},
+	"custom/reboot": {
+		"format": "󰜉",
+		"tooltip-format": "Reboot",
+		"on-click": "reboot"
+	},
+	"custom/shutdown": {
+		"on-click": "shutdown now",
+		"format": "",
+		"tooltip-format": "Shutdown"
+	},
+	"custom/power": {
+		"format": "󰐦",
+		"tooltip-format": "Power Menu"
+	},
+
+// Brightness
+	"group/brightness": {
+		"orientation": "inherit",
+		"drawer": {
+			"children-class": "brightness-child",
+			"transition-duration": 500,
+			"transition-left-to-right": true
+		},
+		"modules": [
+			"backlight",
+			"backlight/slider"
+		]
+	},
+	"backlight/slider": {
+		"min": 20,
+		"max": 100,
+		"orientation": "horizontal"
+	},
+	"backlight": {
+		"interval": 2,
+		"align": 0,
+		"rotate": 0,
+		"format": "{icon} {percent}%",
+		"format-icons": [
+			"", "", "", "󰃝", "󰃞", "󰃟", "󰃠"
+		],
+		"tooltip-format": "backlight {percent}%",
+		"icon-size": 10,
+		"on-scroll-up": "~/.config/waybar/scripts/brightness.sh up",
+		"on-scroll-down": "~/.config/waybar/scripts/brightness.sh down",
+		"smooth-scrolling-threshold": 1
+	},
+
+// Custom
+	"custom/updates": {
+		"format": "{icon}{0}",
+		"return-type": "json",
+		"format-icons": {
+			"pending-updates": " ",
+			"updated": ""
+		},
+		"exec-if": "which waybar-updates",
+ 		"exec": "waybar-updates --flatpak --devel --notify --tooltip {}",
+		"on-click-right": "kitty $HOME/.config/waybar/scripts/update-pkgs.sh"
+	},
+
+	"custom/cliphist":{
+		"format": "󰨸",
+		"on-click": "~/.config/waybar/scripts/cliphist.sh",
+		"on-click-right": "cliphist wipe",
+		"tooltip-format": "Clipboard History\nRight Click: Clear"
+	},
+
+	"custom/swaync": {
+		"format": "{} {icon}",
+		"format-icons": {
+			"notification": "<span foreground='red'><sup></sup></span>",
+			"none": "",
+			"dnd-notification": "<span foreground='red'><sup></sup></span>",
+			"dnd-none": "",
+			"inhibited-notification": "<span foreground='red'><sup></sup></span>",
+			"inhibited-none": "",
+			"dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+			"dnd-inhibited-none": ""
+		},
+		"return-type": "json",
+		"exec-if": "which swaync-client",
+		"exec": "swaync-client -swb",
+		"on-click": "sleep 0.1 && swaync-client -t",
+		"on-click-right": "swaync-client -d",
+		"escape": true,
+		"tooltip-format": "Left Click: Launch Notification Center\nRight Click: Do not Disturb"
+	}
+}

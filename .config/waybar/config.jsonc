@@ -2,7 +2,7 @@
 {
     //"layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
-    "height": 24,// Waybar height (to be removed for auto height)
+    //"height": 24,// Waybar height (to be removed for auto height)
     //"width": 1900, // Waybar width
     //"spacing": 2, // Gaps between modules (4px)
     // Choose the order of the modules
@@ -19,22 +19,21 @@
     ],
     "modules-right": [
         "custom/updates",
+        "privacy",
         "idle_inhibitor",
         "custom/cliphist",
         "tray",
         "mpris",
-        "wireplumber#sink",
-        "wireplumber#source",
-        "backlight",
+        "group/audio",
+        "group/brightness",
         "bluetooth",
-        "power-profiles-daemon",
-        "battery",
+        "group/batterypower",
         "custom/swaync",
         "clock",
-        "custom/power"
+        "group/power"
     ],
     //Modules configuration
     "include": [
-		"~/.config/waybar/modules.json"
+		"~/.config/waybar/modules.jsonc"
 	]
 }
