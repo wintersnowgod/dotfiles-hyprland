@@ -31,10 +31,6 @@
   "widgets": [
     "title",
     "dnd",
-    "buttons-grid",
-    "mpris",
-    "volume",
-    "backlight",
     "notifications"
   ],
   "widget-config": {
@@ -46,44 +42,6 @@
     "dnd": {
       "text": "Do Not Disturb",
       "show-button": true
-    },
-    "mpris": {
-      "image-size": 40,
-      "image-radius": 8
-    },
-    "volume": {
-      "label": "󰕾"
-    },
-    "backlight": {
-      "label": "󰃟"
-    },
-    "buttons-grid": {
-      "actions": [
-        {
-          "label": "",
-          "command":"pavucontrol"
-        },
-        {
-          "label": "󰝟",
-          "command": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-        },
-        {
-          "label": "󰂯",
-          "command": "blueman-manager"
-        },
-        {
-          "label": "󰌾",
-          "command": "hyprlock"
-        },
-        {
-          "label": "󰍃",
-          "command": "hyprctl dispatch exit"
-        },
-        {
-          "label": "󰐥",
-          "command": "wlogout -b 3 -T 200 -B 200"
-        }
-      ]
     }
   }
 }
