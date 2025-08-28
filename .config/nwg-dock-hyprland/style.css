@@ -1,50 +1,42 @@
-@define-color accent #4a5080;
-@define-color accent-hover #6a77b2;
-@define-color bg-win rgba(25,25,35,0.85);
-@define-color bg-card rgba(120,120,150,0.2);
-@define-color bg-hover rgba(40,40,46,0.95);
-@define-color border rgba(255,255,255,0.12);
-@define-color text #e8e8ea;
-@define-color text-dim #b8b8be;
+@import '../waybar/css/dark-modern.css';
 
 window {
-	background: @bg-win;
+  	background: @bg;
 	border-radius: 10px;
-	border-style: none;
-	border-width: 1px;
-	border-color: @border;
+	border-style: solid;
+	border-width: 3px;
+	border-color: @border_color;
 }
 
 #box {
-/* Surrounding box for icons */
-padding: 10px;
+  	/* Define attributes of the box surrounding icons here */
+  	padding: 10px;
 }
 
 #active {
-/* Underline for the currently active window */
-border-bottom: solid 1px;
-border-color: @accent;
+	/* This is to underline the button representing the currently active window */
+	border-bottom: solid 0px;
+	border-color: @border_color;
 }
 
 button, image {
 	background: none;
 	border-style: none;
 	box-shadow: none;
-	color: @text-dim;
+	color: @fg;
 }
 
 button {
 	padding: 4px;
 	margin-left: 4px;
 	margin-right: 4px;
-	color: @text;
-	font-size: 12px;
+	color: @fg;
+	font-size: 12px
 }
 
 button:hover {
-	background-color: @bg-hover;
-	border-radius: 2px;
-	color: @accent-hover;
+	background-color: @accent;
+	border-radius: 5px;
 }
 
 button:focus {
