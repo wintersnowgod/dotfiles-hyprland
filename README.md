@@ -61,6 +61,7 @@ zsh-syntax-highlighting
 ```
 yay -S \
 darkly-bin \
+hyprshell \
 hyprsysteminfo \
 oh-my-zsh-git \
 oh-my-zsh-powerline-theme-git \
