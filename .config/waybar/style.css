@@ -1,14 +1,4 @@
-/* Waybar general styling */
-@define-color bg black;
-@define-color fg white;
-@define-color accent blueviolet;
-@define-color warning orange;
-@define-color critical red;
-@define-color good green;
-@define-color inactive lightgray;
-@define-color active white;
-@define-color error red;
-@define-color border_color gray;
+@import 'css/dark-modern.css';
 
 * {
   border-radius: 0px;
@@ -201,7 +191,7 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
  #custom-notification {
-    padding: 0px 8px 0px 4px;
+    padding: 0px 6px 0px 4px;
     font-size: 15px;
 }
 

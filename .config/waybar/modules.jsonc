@@ -402,13 +402,13 @@
 		"none": "",
 		"dnd-notification":
 			"<span rise='8pt'><span foreground='red'><sup></sup></span></span>",
-		"dnd-none": "",
+		"dnd-none": " ",
 		"inhibited-notification":
 			"<span rise='8pt'><span foreground='red'><sup></sup></span></span>",
 		"inhibited-none": "",
 		"dnd-inhibited-notification":
 			"<span rise='8pt'><span foreground='red'><sup></sup></span></span>",
-		"dnd-inhibited-none": ""
+		"dnd-inhibited-none": " "
 		},
 		"return-type": "json",
 		"exec-if": "which swaync-client",
