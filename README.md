@@ -56,6 +56,7 @@ zsh-autosuggestions \
 zsh-completions \
 zsh-syntax-highlighting
 ```
+
 ### AUR Pkgs
 ```
 yay -S \
@@ -68,11 +69,13 @@ qt6ct-kde \
 waybar-updates \
 wofi-emoji
 ```
+
 ### Flatpak Pkgs
 ```
 flatpak insatll \
 org.gnome.Calendar \
 io.missioncenter.MissionCenter
+```
 
 ### Extra pkgs
 - Thumbnails some file types for dolphin  
