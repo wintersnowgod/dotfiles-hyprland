@@ -25,6 +25,7 @@ breeze \
 brightnessctl \
 cliphist \
 dolphin \
+fastfetch \
 gnome-keyring \
 hypridle \
 hyprland \
@@ -55,7 +56,7 @@ zsh-autosuggestions \
 zsh-completions \
 zsh-syntax-highlighting
 ```
-### AUR pkgs
+### AUR Pkgs
 ```
 yay -S \
 darkly-bin \
@@ -64,9 +65,14 @@ oh-my-zsh-git \
 oh-my-zsh-powerline-theme-git \
 qt5ct-kde \
 qt6ct-kde \
-waybar-update \
+waybar-updates \
 wofi-emoji
 ```
+### Flatpak Pkgs
+```
+flatpak insatll \
+org.gnome.Calendar \
+io.missioncenter.MissionCenter
 
 ### Extra pkgs
 - Thumbnails some file types for dolphin  
