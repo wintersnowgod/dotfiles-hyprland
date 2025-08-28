@@ -14,8 +14,8 @@
     "modules-left": [
         "custom/menu",
         "group/sysmon",
-        "hyprland/window",
-        "hyprland/language"
+        "hyprland/language",
+        "hyprland/window"
     ],
     "modules-center": [
         "hyprland/workspaces"
