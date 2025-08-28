@@ -1,119 +1,78 @@
-/* ───────────────────────────────
- *          Modern Dark
- * ─────────────────────────────── */
+@import '../waybar/css/dark-modern.css';
 
-@define-color accent #5865f2;
-@define-color accent-hover #2be0c5;
-@define-color bg-win rgba(25,25,35,0.85);
-@define-color bg-card rgba(120,120,150,0.2);
-@define-color bg-hover rgba(40,40,46,0.95);
-@define-color border rgba(255,255,255,0.12);
-@define-color text #e8e8ea;
-@define-color text-dim #b8b8be;
-
-/* ── Global reset ─────────────── */
-window, label, button, entry, scale, switch, box {
-  font-family: "Inter", "JetBrainsMono Nerd Font", "Noto Sans", system-ui, sans-serif;
-  font-size: 12px;
-  color: @text;
-  margin: 0;
-  padding: 0;
+* {
+    font-family: JetBrainsMono Nerd Font, monospace;
 }
 
-/* Control center shell */
+/* Control Center */
+
 .control-center {
-  background: @bg-win;
-  border: 1px solid @border;
-  border-radius: 14px;
-  padding: 8px 12px;   /* ⬅️ added more left-right padding */
-  box-shadow: 0 10px 28px rgba(0,0,0,.55);
+    border: 3px solid @border_color;
+    background-color: @bg;
+    padding: 10px;
 }
 
-/* Generic widget box style */
-.widget-dnd {
-  background: @bg-card;
-  border: 1px solid @border;
-  border-radius: 10px;
-  padding: 6px 8px;    /* ⬅️ compact but with a little side room */
-  margin: 6px 0;
-  box-shadow: 0 2px 6px rgba(0,0,0,.25);
+button {
+    border: 0px;
+    min-width: 35px;
+    background: @bg-active;
+    border: 3px solid @border_color;
+    color: @active;
 }
 
-/* Title row */
-.widget-title {
-  padding: 4px 6px;
-  margin-bottom: 6px;
-  color: #fff;
-  font-weight: 600;
-  border-bottom: 1px solid @border;
+button:hover {
+    background: @accent;
+    color: @active;
 }
-.widget-title > button {
-  background: transparent;
-  border: 1px solid @border;
-  border-radius: 6px;
-  padding: 2px 8px;
-  font-size: 11px;
-  font-weight: 500;
-  color: @text-dim;
-  transition: background-color .15s ease, border-color .15s ease, color .15s ease;
+
+.notification-group-header {
+    font-size: 14px;
 }
-.widget-title > button:hover {
-  background: @accent;
-  border-color: @accent;
-  color: #111;
+
+.widget-buttons-grid > flowbox > flowboxchild > button {
+    margin:5px;
 }
-.widget-title > button:active {
-  background: @accent-hover;
-  border-color: @accent-hover;
-  color: #111;
+
+/* Notification */
+
+.notification {
+    border: 3px solid @border_color;
+	  border-radius: 10px;
+    padding:5px;
+}
+
+.notification-default-action:hover,
+.notification-action:hover {
+    color: @accent;
+    background: transparent;
+}
+
+.close-button {
+    background: @border_color;
+    text-shadow: none;
+    padding: 0;
+    border-radius: 15px;
+    margin-top: 9px;
+    margin-right: 10px;
+    min-width: 24px;
+    min-height: 24px;
+}
+
+.close-button:hover {
+    background: @accent;
+}
+
+.notification-group .notification-group-close-button .close-button {
+    margin: 15px 22px;
 }
 
 /* DnD */
-.widget-dnd:hover { background: @bg-hover; }
 .widget-dnd switch {
-  background: #3a3a40;
-  border-radius: 999px;
+  background: @bg-active;
+  border-radius: 5px;
 }
 .widget-dnd switch slider {
-  background: #fff;
-  border-radius: 999px;
+  background: @fg;
+  border-radius: 5px;
 }
 .widget-dnd switch:checked { background: @accent; }
-
-/* ── Notifications ───────────── */
-.notification-row {
-  background: transparent;
-  border: none;
-  margin: 8px 0;
-  padding: 0;
-}
-.notification-row .notification-background,
-.notification-background {
-  background: @bg-card;
-  border: 1px solid @border;
-  border-radius: 12px;
-  padding: 10px 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,.25);
-}
-.notification-title { font-weight: 600; color: #fff; margin-bottom: 2px; }
-.notification-body { color: @text-dim; line-height: 1.28; }
-.notification-actions button {
-  background: transparent;
-  border: 1px solid @border;
-  border-radius: 6px;
-  padding: 3px 8px;
-  margin-top: 4px;
-  color: @text;
-}
-.notification-actions button:hover {
-  background: @accent;
-  border-color: @accent;
-  color: #111;
-}
-
-/* Scrollbar */
-scrollbar slider {
-  background: rgba(255,255,255,.22);
-  border-radius: 6px;
-}
-scrollbar slider:hover { background: @accent; }
