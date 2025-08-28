@@ -1,26 +1,82 @@
 {
-	"custom/arch": {
+	"custom/menu": {
 		"format": "󰣇",
 		"on-click": "~/.config/waybar/scripts/wofi.sh",
 		"tooltip-format": "Show Wofi Menu"
 	},
 
+	// Workspaces
 	"hyprland/workspaces": {
+		"on-scroll-up": "hyprctl dispatch workspace r-1",
+		"on-scroll-down": "hyprctl dispatch workspace r+1",
+		"on-click": "activate",
+		"active-only": false,
 		"all-outputs": true,
-		"format": "{name}",
+		"format": "{}",
+		"format-icons": {
+		"urgent": "",
+		"active": "",
+		"default": ""
+		},
 		"persistent-workspaces": {
-			"*": 4
+		"*": 5
 		}
 	},
 
+	// Hyprland Window
 	"hyprland/window": {
+		"max-length": 60,
 		"format": "{class}",
+		"rewrite": {
+		"(.*) - Brave": "$1",
+		"(.*) - Chromium": "$1",
+		"(.*) - Brave Search": "$1",
+		"(.*) - Outlook": "$1",
+		"(.*) Microsoft Teams": "$1"
+		},
+		"separate-outputs": true,
 		"icon": true
 	},
 
+	// Keyboard Layout
+	"hyprland/language": {
+		"format": "{short}"
+	},
+
+	// System tray
 	"tray": {
-		"icon-size": 20,
-		"spacing": 4
+		"icon-size": 21,
+		"spacing": 10
+	},
+
+	// Clock
+	"clock": {
+		"interval": 1,
+		"format": "{:%I:%M %p  %Z}",
+		"format-alt": "{:%A, %B %d, %Y 🗓}",
+		"tooltip-format": "<tt><small>{calendar}</small></tt>",
+		"timezones": [
+			"Asia/Shanghai",
+			"Asia/Kathmandu"
+		],
+		"calendar": {
+			"mode"          : "month",
+			"mode-mon-col"  : 3,
+			"weeks-pos"     : "right",
+			"on-scroll"     : 1,
+			"format": {
+				"months":     "<span color='#ffead3'><b>{}</b></span>",
+				"days":       "<span color='#ecc6d9'><b>{}</b></span>",
+				"weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+				"weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+				"today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+			}
+		},
+		"actions": {
+			"on-scroll-up": "tz_up",
+			"on-scroll-down": "tz_down"
+		},
+		"on-click-right": "~/.config/waybar/scripts/calendar.sh"
 	},
 
 	"idle_inhibitor": {
@@ -31,42 +87,6 @@
 		},
 		"tooltip-format-activated": "Inhibit Sleep: {status}",
 		"tooltip-format-deactivated": "Inhibit Sleep: {status}"
-	},
-
-	"cpu": {
-		"format": " {usage}%",
-		"on-click": "kitty htop"
-	},
-
-	"memory": {
-		"format": " {}%",
-		"on-click": "kitty htop"
-	},
-
-	"temperature": {
-		"interval": 10,
-		"critical-threshold": 100,
-		"format-critical": " {temperatureC}",
-		"format": " {temperatureC}°C",
-		"on-click": "kitty htop"
-	},
-
-	"network#speed": {
-		"interval": 1,
-		"format": "{ifname}",
-		"format-alt":"{icon} ",
-		"format-wifi": "{icon}   {bandwidthUpBytes}  {bandwidthDownBytes}",
-		"format-ethernet": "󰌘  {bandwidthUpBytes}  {bandwidthDownBytes}",
-		"format-disconnected": "󰌙",
-		"tooltip-format": "{ipaddr}",
-		"format-linked": "󰈁 {ifname} (No IP)",
-		"tooltip-format-wifi": "{essid} {icon} {signalStrength}%",
-		"tooltip-format-ethernet": "{ifname} 󰌘",
-		"tooltip-format-disconnected": "󰌙 Disconnected",
-		"format-icons": [
-			"󰤯", "󰤟", "󰤢", "󰤥", "󰤨"
-		],
-		"on-click-right": "kitty nmtui"
 	},
 
 	"bluetooth": {
@@ -83,8 +103,8 @@
 		"tooltip-format-on": "No devices Connected",
 		"tooltip-format-off": "Bluetooth is turned Off",
 		"tooltip-format-disabled":"Bluetooth Controller is Disabled",
-		"on-click": "blueman-manager",
-		"on-click-right": "~/.config/waybar/scripts/bluetooth-toggle.sh"
+		"on-click": "~/.config/waybar/scripts/bluetooth.sh -m",
+		"on-click-right": "~/.config/waybar/scripts/bluetooth.sh -t"
 	},
 
 	"privacy": {
@@ -115,6 +135,7 @@
 		"format": "{player_icon}",
 		"format-paused": "{status_icon}",
 		"on-click": "playerctl play-pause",
+		"on-click-right": "pavucontrol -t 1",
 		"on-scroll-up": "playerctl previous",
 		"on-scroll-down": "playerctl next",
 		"scroll-step": 5.0,
@@ -135,6 +156,50 @@
 			"playing": "",
 			"stopped": ""
 		}
+	},
+
+// Sysmon
+	"group/sysmon": {
+	"orientation": "inherit",
+	"modules": [
+		"cpu",
+		"temperature",
+		"memory",
+		"network"
+		]
+	},
+
+	"cpu": {
+		"format": " {usage}%",
+		"on-click": "~/.config/waybar/scripts/system-monitor.sh"
+	},
+
+	"memory": {
+		"format": " {}%",
+		"on-click": "~/.config/waybar/scripts/system-monitor.sh"
+	},
+
+	"temperature": {
+		"interval": 10,
+		"critical-threshold": 100,
+		"format-critical": " {temperatureC}",
+		"format": " {temperatureC}°C",
+		"on-click": "~/.config/waybar/scripts/system-monitor.sh"
+	},
+
+	// Network
+	"network": {
+		"format": "{ifname}",
+		"format-wifi": "{icon}   {bandwidthUpBytes}  {bandwidthDownBytes}",
+		"format-ethernet": "󰌘  {bandwidthUpBytes}  {bandwidthDownBytes}",
+		"format-disconnected": "⚠",
+		"tooltip-format": "󰌘 {ifname} via {gwaddri}",
+		"tooltip-format-wifi": "{icon} {ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
+		"tooltip-format-ethernet": " {ifname}\nIP: {ipaddr}\n up: {bandwidthUpBits} down: {bandwidthDownBits}",
+		"tooltip-format-disconnected": "⚠ Disconnected",
+		"max-length": 50,
+		"format-icons": [ "󰤯", "󰤟", "󰤢", "󰤥", "󰤨" ],
+		"on-click": "~/.config/waybar/scripts/networkmanager.sh"
 	},
 
 // Audio
@@ -173,7 +238,7 @@
 		},
 		"max-volume": 100,
 		"on-click": "wpctl set-mute @DEFAULT_SINK@ toggle",
-		"on-click-right": "pavucontrol -t 1"
+		"on-click-right": "pavucontrol -t 3"
 	},
 	"wireplumber#source": {
 		"node-type": "Audio/Source",
@@ -204,7 +269,7 @@
 		"format": "{icon}",
 		"tooltip-format": "Power profile: {profile}\nDriver: {driver}",
 		"format-icons": {
-			"default": " ",
+			"default": " ",
 			"performance": "  ",
 			"balanced": "  ",
 			"power-saver": "  "
@@ -213,7 +278,6 @@
 	"battery": {
 		"interval": 1,
 		"states": {
-			"finished": 100,
 			"good" : 80,
 			"warning": 20,
 			"critical": 10
@@ -225,25 +289,16 @@
 		"tooltip-format-discharging": "{timeTo}\nCharge Cycles: {cycles}\nBattery Health: {health}%",
 		"tooltip-format-charging": "{timeTo}\nPower Draw {power} watt\nCharge Cycles: {cycles}\nBattery Health: {health}%",
 		"tooltip-format-full": "{timeTo}\nUnplug the charger!!\nCharge Cycles: {cycles}\nBattery Health: {health}%",
-
-		"format-icons": [
-			"󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"
-		]
-	},
-
-	"clock": {
-		"format": "{:%I:%M %p}",
-		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-		"format-alt": "{:%Y-%m-%d}"
+		"format-icons": [ "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹" ]
 	},
 
 // Power
-	"group/power": {
+	"group/powermodules": {
 		"orientation": "inherit",
 		"drawer": {
 			"transition-duration": 500,
 			"transition-left-to-right": false,
-			"click-to-reveal": true
+			"children-class": "powermodules-child"
 		},
 		"modules": [
 			"custom/power",
@@ -280,7 +335,7 @@
 		"tooltip-format": "Shutdown"
 	},
 	"custom/power": {
-		"format": "󰐦",
+		"format": "󰐦 ",
 		"tooltip-format": "Power Menu"
 	},
 
@@ -327,34 +382,39 @@
 		},
 		"exec-if": "which waybar-updates",
  		"exec": "waybar-updates --flatpak --devel --notify --tooltip {}",
-		"on-click-right": "kitty $HOME/.config/waybar/scripts/update-pkgs.sh"
+		"on-click": "$HOME/.config/waybar/scripts/update.sh"
 	},
 
-	"custom/cliphist":{
+	"custom/clipboard":{
 		"format": "󰨸",
-		"on-click": "~/.config/waybar/scripts/cliphist.sh",
-		"on-click-right": "cliphist wipe",
+		"on-click": "~/.config/waybar/scripts/clipboard.sh -o",
+		"on-click-right": "~/.config/waybar/scripts/clipboard.sh -c",
 		"tooltip-format": "Clipboard History\nRight Click: Clear"
 	},
 
-	"custom/swaync": {
-		"format": "{} {icon}",
+	// Notifications
+	"custom/notification": {
+		"tooltip-format": "Left: Notifications\nRight: Do not disturb",
+		"format": "{icon}",
 		"format-icons": {
-			"notification": "<span foreground='red'><sup></sup></span>",
-			"none": "",
-			"dnd-notification": "<span foreground='red'><sup></sup></span>",
-			"dnd-none": "",
-			"inhibited-notification": "<span foreground='red'><sup></sup></span>",
-			"inhibited-none": "",
-			"dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
-			"dnd-inhibited-none": ""
+		"notification":
+			"<span rise='8pt'><span foreground='red'><sup></sup></span></span>",
+		"none": "",
+		"dnd-notification":
+			"<span rise='8pt'><span foreground='red'><sup></sup></span></span>",
+		"dnd-none": "",
+		"inhibited-notification":
+			"<span rise='8pt'><span foreground='red'><sup></sup></span></span>",
+		"inhibited-none": "",
+		"dnd-inhibited-notification":
+			"<span rise='8pt'><span foreground='red'><sup></sup></span></span>",
+		"dnd-inhibited-none": ""
 		},
 		"return-type": "json",
 		"exec-if": "which swaync-client",
 		"exec": "swaync-client -swb",
-		"on-click": "sleep 0.1 && swaync-client -t",
-		"on-click-right": "swaync-client -d",
-		"escape": true,
-		"tooltip-format": "Left Click: Launch Notification Center\nRight Click: Do not Disturb"
+		"on-click": "swaync-client -t -sw",
+		"on-click-right": "swaync-client -d -sw",
+		"escape": true
 	}
 }
