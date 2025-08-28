@@ -164,8 +164,7 @@
 	"modules": [
 		"cpu",
 		"temperature",
-		"memory",
-		"network"
+		"memory"
 		]
 	},
 

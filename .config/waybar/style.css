@@ -16,6 +16,7 @@ window#waybar {
 /* Left modules */
 #custom-menu,
 #sysmon,
+#network,
 #window,
 #language {
   font-size: 12px;
@@ -29,6 +30,7 @@ window#waybar {
 
 #custom-menu:hover,
 #sysmon:hover,
+#network:hover,
 #window:hover,
 #language:hover {
   transition: all 0.1s linear;
@@ -196,13 +198,17 @@ window#waybar.empty #window {
 }
 
 /* -----------------------------------------------------
- * Sysmon (CPU, Memory, Disk, Network, Temperature)
+ * Sysmon (CPU, Memory, Disk, Temperature)
  * ----------------------------------------------------- */
 
-#disk,#memory,#cpu,#network,#temperature {
+#disk,#memory,#cpu,#temperature {
     padding: 0px 6px;
     margin: 3px 2px;
 }
+
+/* -----------------------------------------------------
+ * Network
+ * ----------------------------------------------------- */
 
 #network.disconnected {
   color: red;
@@ -365,8 +371,7 @@ color: purple;
 
 /* -----------------------------------------------------
  * powermodules (Shutdown, Reboot, Logout, Lock, Suspend)
- * ----------------------------------------------------
- - */
+ * ----------------------------------------------------- */
 #powermodules {
   padding: 0px 5px 0px 11px;
   margin: 3px 2px;
