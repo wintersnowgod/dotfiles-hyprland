@@ -1,4 +1,4 @@
-@import '../waybar/css/dark-modern.css';
+@import 'colors.css';
 
 * {
     font-family: JetBrainsMono Nerd Font, monospace;
@@ -7,72 +7,129 @@
 /* Control Center */
 
 .control-center {
-    border: 3px solid @border_color;
-    background-color: @bg;
+    border: 1px solid @inverse_primary;
+    background-color: @background;
     padding: 10px;
 }
 
 button {
     border: 0px;
     min-width: 35px;
-    background: @bg-active;
-    border: 3px solid @border_color;
-    color: @active;
+    background: @on_primary;
+    border: 5px solid @inverse_primary;
+    color: @primary;
 }
 
 button:hover {
-    background: @accent;
-    color: @active;
+    background: @primary_container;
+    color: @primary;
 }
 
 .notification-group-header {
-    font-size: 14px;
-}
-
-.widget-buttons-grid > flowbox > flowboxchild > button {
-    margin:5px;
+    font-size: 12px;
 }
 
 /* Notification */
 
 .notification {
-    border: 3px solid @border_color;
+    border: 1px solid @inverse_primary;
 	border-radius: 10px;
-    padding:5px;
+    padding: 0px;
+    color: @primary;
+}
+
+.critical {
+    background: @error;
+    padding: 6px;
+    border-radius: 12px;
+}
+
+.notification-content {
+    background: transparent;
+    padding: 6px;
+    border-radius: 12px;
+}
+
+.notification-row:focus,
+.notification-row:hover {
+    background: @primary_container;
 }
 
 .notification-default-action:hover,
 .notification-action:hover {
-    color: @accent;
+    color: @primary_container;
     background: transparent;
 }
 
 .close-button {
-    background: @border_color;
-    text-shadow: none;
-    padding: 0;
+    background: @primary;
     border-radius: 15px;
-    margin-top: 9px;
-    margin-right: 10px;
+    padding: 0px;
+    margin: 6px 10px 0px 0px;
     min-width: 24px;
     min-height: 24px;
+    border: none;
 }
 
 .close-button:hover {
-    background: @accent;
+    background: @primary_container;
+    transition: all 0.15s ease-in-out;
+    border: none;
 }
 
 .notification-group .notification-group-close-button .close-button {
     margin: 15px 22px;
 }
 
+.notification-default-action,
+.notification-action {
+    padding: 4px;
+    margin: 0;
+    box-shadow: none;
+    background: @background;
+    border: 1px solid @primary;
+    color: @on_primary_container;
+}
+
+.notification-default-action:hover,
+.notification-action:hover {
+    -gtk-icon-effect: none;
+    background: @primary_container;
+}
+
+.notification-default-action {
+    border-radius: 12px;
+}
+
+/* When alternative actions are visible */
+.notification-default-action:not(:only-child) {
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.notification-action {
+    border-radius: 0px;
+    border-top: none;
+    border-right: none;
+}
+
+/* add bottom border radius to eliminate clipping */
+.notification-action:first-child {
+    border-bottom-left-radius: 10px;
+}
+
+.notification-action:last-child {
+    border-bottom-right-radius: 10px;
+    border-right: 1px solid @primary;
+}
+
 /* DnD */
 .widget-dnd switch {
-  background: @bg-active;
+  background: @primary;
   border-radius: 5px;
 }
 .widget-dnd switch slider {
-  background: @fg;
+  background: @on_primary;
   border-radius: 5px;
 }
-.widget-dnd switch:checked { background: @accent; }
+.widget-dnd switch:checked { background: @primary_container; }

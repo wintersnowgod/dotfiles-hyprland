@@ -63,8 +63,10 @@ yay -S \
 darkly-bin \
 hyprshell \
 hyprsysteminfo \
+matugen-bin \
 oh-my-zsh-git \
 oh-my-zsh-powerline-theme-git \
+python-pywalfox \
 qt5ct-kde \
 qt6ct-kde \
 waybar-updates \

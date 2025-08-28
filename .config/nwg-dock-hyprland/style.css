@@ -1,11 +1,11 @@
-@import '../waybar/css/dark-modern.css';
+@import 'colors.css';
 
 window {
-  	background: @bg;
+  	background: @background;
 	border-radius: 10px;
 	border-style: solid;
 	border-width: 3px;
-	border-color: @border_color;
+	border-color: @inverse_primary;
 }
 
 #box {
@@ -16,14 +16,14 @@ window {
 #active {
 	/* This is to underline the button representing the currently active window */
 	border-bottom: solid 0px;
-	border-color: @border_color;
+	border-color: @on_primary_container;
 }
 
 button, image {
 	background: none;
 	border-style: none;
 	box-shadow: none;
-	color: @fg;
+	color: @on_primary_container;
 }
 
 button {
@@ -35,7 +35,7 @@ button {
 }
 
 button:hover {
-	background-color: @accent;
+	background-color: @primary_container;
 	border-radius: 5px;
 }
 

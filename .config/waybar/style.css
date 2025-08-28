@@ -1,4 +1,4 @@
-@import 'css/dark-modern.css';
+@import 'colors.css';
 
 * {
   border-radius: 0px;
@@ -23,9 +23,9 @@ window#waybar {
   padding: 0px 6px;
   margin: 3px 2px;
   border-radius: 5px 5px 5px 5px;
-  background: @bg;
-  color: @fg;
-  border: 3px solid @border_color;
+  background: @background;
+  color: @primary;
+  border: 1px solid @inverse_primary;
 }
 
 #custom-menu:hover,
@@ -34,17 +34,19 @@ window#waybar {
 #window:hover,
 #language:hover {
   transition: all 0.1s linear;
-  background: @accent;
+  background: @primary_container;
+  color: @on_primary_container;
   min-width: 30px;
+  font-size: 16px;
 }
 
 /* Center modules */
 #workspaces {
-  background: @bg;
-  color: @fg;
+  background: @background;
+  color: @primary;
   font-size: 12px;
   margin:4px 5px 4px 0px;
-  border: 3px solid @border_color;
+  border: 1px solid @inverse_primary;
   border-radius: 5px 5px 5px 5px;
 }
 
@@ -66,9 +68,9 @@ window#waybar {
   padding: 0px 6px;
   margin: 3px 2px;
   border-radius: 5px 5px 5px 5px;
-  background: @bg;
-  color: @fg;
-  border: 3px solid @border_color;
+  background-color: @background;
+  color: @primary;
+  border: 1px solid @inverse_primary;
 }
 
 /* Hover effect for right-side modules */
@@ -85,8 +87,10 @@ window#waybar {
 #clock:hover,
 #powermodules:hover {
   transition: all 0.1s linear;
-  background: @accent;
+  background: @primary_container;
+  color: @on_primary_container;
   min-width: 30px;
+  font-size: 16px;
 }
 /* -----------------------------------------------------
  * Workspaces
@@ -96,26 +100,28 @@ window#waybar {
   padding: 0px 2px;
   font-weight: bold;
   font-style: normal;
+  color: @primary;
 }
 
 #workspaces button {
   padding: 0px 6px;
   margin: 3px 2px;
-  color: @inactive;
+  color: @primary;
   transition: all 0.1s linear;
 }
 
 #workspaces button.active {
-  color: @active;
-  background: @accent;
+  color: @on_primary_container;
+  background: @primary_container;
   min-width: 30px;
   transition: all 0.1s linear;
   border-radius: 3px 3px 3px 3px;
+  font-size: 16px;
 }
 
 #workspaces button:hover {
-  color: @active;
-  background: @accent;
+  color: @on_primary_container;
+  background: @primary_container;
   border-radius: 5px 5px 5px 5px;
 }
 /* -----------------------------------------------------
@@ -129,7 +135,7 @@ tooltip {
 }
 
 tooltip label {
-  color: @fg;
+  color: @on_surface;
 }
 
 /* -----------------------------------------------------
@@ -139,12 +145,11 @@ tooltip label {
 #window {
     margin: 3px 2px 3px 2px;
     padding: 2px 10px 0px 10px;
-    font-size:16px;
     font-weight:normal;
 }
 
 window#waybar.empty #window {
-    background-color:transparent;
+    background:transparent;
     border: none;
 }
 
@@ -155,14 +160,12 @@ window#waybar.empty #window {
 #idle_inhibitor {
     font-weight: normal;
     opacity: 1.0;
-    color: @inactive;
 }
 
 #idle_inhibitor.activated {
-    font-size: 15px;
     font-weight: bold;
     opacity: 1.0;
-    color: @active;
+    color: @on_primary_container;
 }
 
 /* -----------------------------------------------------
@@ -182,7 +185,7 @@ window#waybar.empty #window {
 }
 
 @keyframes blink-update {
-  to { color: yellow; }
+  to { color: @tertiary; }
 }
 #custom-updates.pending-updates {
   animation: 3s blink-update linear infinite alternate;
@@ -192,9 +195,8 @@ window#waybar.empty #window {
  * Custom Notification
  * ----------------------------------------------------- */
 
- #custom-notification {
+#custom-notification {
     padding: 0px 6px 0px 4px;
-    font-size: 15px;
 }
 
 /* -----------------------------------------------------
@@ -211,7 +213,7 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #network.disconnected {
-  color: red;
+  color: @error;
 }
 
 /* -----------------------------------------------------
@@ -220,7 +222,6 @@ window#waybar.empty #window {
 
 #power-profiles-daemon {
     margin: 2px 0px 2px 2px;
-    font-size: 12px;
 }
 
 /* -----------------------------------------------------
@@ -242,12 +243,12 @@ window#waybar.empty #window {
   min-height: 2px;
   min-width: 80px;
   border-radius: 5px;
-  background-color: @inactive;
+  background-color: @on_surface;
 }
 #backlight-slider highlight {
   min-width: 10px;
   border-radius: 5px;
-  background-color: @active;
+  background-color: @primary;
 }
 
 /* -----------------------------------------------------
@@ -265,12 +266,12 @@ window#waybar.empty #window {
   min-height: 2px;
   min-width: 80px;
   border-radius: 5px;
-  background-color: @inactive;
+  background-color: @on_surface;
 }
 #pulseaudio-slider highlight{
   min-width: 10px;
   border-radius: 5px;
-  background-color: @active;
+  background-color: @primary;
 }
 
 /* -----------------------------------------------------
@@ -278,11 +279,11 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #bluetooth, #bluetooth.on, #bluetooth.connected {
-    color: @fg;
+    color: @primary;
 }
 
 #bluetooth.disabled, #bluetooth.off, #bluetooth.no-controller {
-  color: red;
+  color: @error;
 }
 
 /* -----------------------------------------------------
@@ -294,18 +295,12 @@ window#waybar.empty #window {
 #battery.full {
   color: green;
 }
-#battery.discharging {
-  color: white
-}
-#battery.discharging.good {
-  color: gray;
-}
 #battery.discharging.warning {
   color: orange;
   animation: blink 3s linear infinite alternate;
 }
 #battery.discharging.critical {
-  color: red;
+  color: @error;
   animation: blink 0.8s linear infinite alternate;
 }
 @keyframes blink {
@@ -320,13 +315,10 @@ window#waybar.empty #window {
 #mpris.stopped {
   color: red;
 }
-#mpris.paused,
-#mpris.playing {
+#mpris.paused, #mpris.playing {
   color: gray;
 }
-#mpris.brave,
-#mpris.firefox,
-#mpris.vlc {
+#mpris.brave, #mpris.firefox, #mpris.vlc {
   color: orange;
 }
 #mpris.spotify {
@@ -382,7 +374,6 @@ color: purple;
 #custom-shutdown, #custom-reboot, #custom-quit, #custom-lock, #custom-suspend {
   padding: 0px 15px 0px 5px;
   margin: 3px 2px 3px 5px;
-  font-size: 15px;
 }
 #custom-shutdown { color: red; }
 #custom-reboot { color: orange; }
