@@ -72,7 +72,7 @@ wofi-emoji
 
 ### Flatpak Pkgs
 ```
-flatpak insatll \
+flatpak install \
 org.gnome.Calendar \
 io.missioncenter.MissionCenter
 ```
