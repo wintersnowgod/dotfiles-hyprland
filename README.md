@@ -70,6 +70,7 @@ python-pywalfox \
 qt5ct-kde \
 qt6ct-kde \
 waybar-updates \
+waypaper \
 wofi-emoji
 ```
 

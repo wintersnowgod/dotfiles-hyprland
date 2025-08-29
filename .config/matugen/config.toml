@@ -38,8 +38,10 @@ output_path = '~/.config/swaync/colors.css'
 post_hook = "swaync-client -R -rs"
 
 [templates.nwgdock]
+pre_hook = 'pkill -f nwg-dock-hyprland'
 input_path = '~/.config/matugen/templates/colors.css'
 output_path = '~/.config/nwg-dock-hyprland/colors.css'
+post_hook = 'nohup nwg-dock-hyprland -d -hd 500 -i 48 -lp start -c "wofi --show drun --width 40% --height 60% -x 500 -y 300" -p bottom -a center -ico "/usr/share/icons/Papirus-Dark/64x64/categories/distributor-logo-archlinux.svg" > /dev/null 2>&1 &'
 
 [templates.sequences]
 input_path = '~/.config/matugen/templates/sequences'
