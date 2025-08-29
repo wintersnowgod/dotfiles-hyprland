@@ -33,11 +33,9 @@ window#waybar {
 #network:hover,
 #window:hover,
 #language:hover {
-  transition: all 0.1s linear;
+  transition: all 0.1s ease-in-out;
   background: @primary_container;
   color: @on_primary_container;
-  min-width: 30px;
-  font-size: 14px;
 }
 
 /* Center modules */
@@ -85,11 +83,9 @@ window#waybar {
 #custom-notification:hover,
 #clock:hover,
 #powermodules:hover {
-  transition: all 0.1s linear;
+  transition: all 0.1s ease-in-out;
   background: @primary_container;
   color: @on_primary_container;
-  min-width: 30px;
-  font-size: 14px;
 }
 /* -----------------------------------------------------
  * Workspaces
