@@ -3,8 +3,7 @@ My dotfiles for hyprland in Arch Linux
 
 ## Preview
 <p align="center">
-  <img src="Images/Screenshot-Full.png" alt="Screenshot-Full" width="45%"/>
-  <img src="Images/Screenshot-Dock.png" alt="Screenshot-Dock" width="45%"/>
+  <img src="Images/Screenshot.png" alt="Screenshot" width="100%"/>
 </p>
 
 ## Instructions
