@@ -75,7 +75,6 @@ window#waybar {
 
 /* Hover effect for right-side modules */
 #custom-updates:hover,
-#privacy:hover,
 #idle_inhibitor:hover,
 #custom-clipboard:hover,
 #mpris:hover,
@@ -135,32 +134,21 @@ tooltip {
 }
 
 tooltip label {
-  color: @on_surface;
+  color: @primary;
 }
 
 /* -----------------------------------------------------
  * Window
  * ----------------------------------------------------- */
 
-#window {
-    margin: 3px 2px 3px 2px;
-    padding: 2px 10px 0px 10px;
-    font-weight:normal;
-}
-
 window#waybar.empty #window {
-    background:transparent;
+    background-color: transparent;
     border: none;
 }
 
 /* -----------------------------------------------------
  * Idle Inhibitor
  * ----------------------------------------------------- */
-
-#idle_inhibitor {
-    font-weight: normal;
-    opacity: 1.0;
-}
 
 #idle_inhibitor.activated {
     font-weight: bold;
@@ -318,7 +306,7 @@ window#waybar.empty #window {
   color: red;
 }
 #mpris.paused, #mpris.playing {
-  color: gray;
+  color: @primary;
 }
 #mpris.brave, #mpris.firefox, #mpris.vlc {
   color: orange;
@@ -347,12 +335,13 @@ color: purple;
 
 #tray menu { 
   border-radius: 10px 10px 10px 10px;
-  background-color: @bg;
+  background-color: @background;
+  color: @primary;
 }
 
 #tray > .active:hover {
-  color: @active;
-  background: @accent;
+  color: @primary;
+  background: @inverse_primary;
   border-radius: 5px 5px 5px 5px;
 }
 
