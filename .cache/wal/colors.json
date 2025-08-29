@@ -1,8 +1,8 @@
 {
-  "wallpaper": "18a38b15494612a72aa014efb373545e.png",
+  "wallpaper": "/home/rosl/.config/hypr/images/island-night-moon-scenery-digital-art-4k.jpg",
   "alpha": "100",
   "colors": {
-    "color0": "#1a110f",
+    "color0": "#0f1417",
     "color1": "",
     "color2": "",
     "color3": "",
@@ -12,11 +12,11 @@
     "color7": "",
     "color8": "",
     "color9": "",
-    "color10": "#ffb59f",
+    "color10": "#92cef5",
     "color11": "",
     "color12": "",
-    "color13": "#423734",
+    "color13": "#353a3d",
     "color14": "",
-    "color15": "#f1dfda"
+    "color15": "#dfe3e7"
   }
 }
