@@ -312,6 +312,9 @@ window#waybar.empty #window {
  * MPRIS (Media Player)
  * ----------------------------------------------------- */
 /* mpris */
+#mpris {
+  padding: 0px 10px 0px 6px;
+}
 #mpris.stopped {
   color: red;
 }
