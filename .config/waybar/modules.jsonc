@@ -348,7 +348,8 @@
 		},
 		"modules": [
 			"backlight",
-			"backlight/slider"
+			"backlight/slider",
+			"custom/hyprsunset"
 		]
 	},
 	"backlight/slider": {
@@ -370,7 +371,14 @@
 		"on-scroll-down": "~/.config/waybar/scripts/brightness.sh down",
 		"smooth-scrolling-threshold": 1
 	},
-
+	"custom/hyprsunset": {
+		"format": "{}",
+		"signal": 10,
+		"return-type": "json",
+		"on-click": "/home/rosl/.config/waybar/scripts/hyprsunset.sh toggle",
+		"exec": "/home/rosl/.config/waybar/scripts/hyprsunset.sh",
+		"tooltip-format": "Toggle Hyprsunset"
+    },
 // Custom
 	"custom/updates": {
 		"format": "{icon}{0}",

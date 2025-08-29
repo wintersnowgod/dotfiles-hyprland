@@ -367,3 +367,11 @@ color: purple;
 #custom-quit { color: yellow; }
 #custom-lock { color: lightblue; }
 #custom-suspend { color: lightgreen; }
+
+/* -----------------------------------------------------
+ * hyprsunset
+ * ----------------------------------------------------- */
+
+#custom-hyprsunset {
+  margin: 0px 10px 0px 10px;
+}
