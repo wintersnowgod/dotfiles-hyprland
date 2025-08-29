@@ -119,6 +119,7 @@ window#waybar {
   background: @primary_container;
   border-radius: 5px 5px 5px 5px;
 }
+
 /* -----------------------------------------------------
  * Tooltips
  * ----------------------------------------------------- */
@@ -133,24 +134,12 @@ tooltip label {
   color: @primary;
 }
 
-/* -----------------------------------------------------
- * Window
- * ----------------------------------------------------- */
 
-window#waybar.empty #window {
-    background-color: transparent;
-    border: none;
-}
-
-/* -----------------------------------------------------
- * Idle Inhibitor
- * ----------------------------------------------------- */
-
-#idle_inhibitor.activated {
-    font-weight: bold;
-    opacity: 1.0;
-    color: @on_primary_container;
-}
+/* ----------------------------------------------------- */
+/* ----------------------------------------------------- */
+/*                LEFT SIDE MODULES                     */
+/* ----------------------------------------------------- */
+/* ----------------------------------------------------- */
 
 /* -----------------------------------------------------
  * App Launcher
@@ -158,29 +147,6 @@ window#waybar.empty #window {
 
 #custom-menu {
     padding: 0px 10px 0px 7px;
-}
-
-/* -----------------------------------------------------
- * Custom Updates
- * ----------------------------------------------------- */
-
-#custom-updates {
-    padding: 0px 2px 0px 4px;
-}
-
-@keyframes blink-update {
-  to { color: @tertiary; }
-}
-#custom-updates.pending-updates {
-  animation: 3s blink-update linear infinite alternate;
-}
-
-/* -----------------------------------------------------
- * Custom Notification
- * ----------------------------------------------------- */
-
-#custom-notification {
-    padding: 0px 6px 0px 4px;
 }
 
 /* -----------------------------------------------------
@@ -201,43 +167,107 @@ window#waybar.empty #window {
 }
 
 /* -----------------------------------------------------
- * Power Profiles Daemon
+ * Window
  * ----------------------------------------------------- */
 
-#power-profiles-daemon {
-    margin: 2px 0px 2px 2px;
+window#waybar.empty #window {
+    background-color: transparent;
+    border: none;
+}
+
+/* ----------------------------------------------------- */
+/* ----------------------------------------------------- */
+/*                RIGHT SIDE MODULES                     */
+/* ----------------------------------------------------- */
+/* ----------------------------------------------------- */
+
+/* -----------------------------------------------------
+ * Custom Updates
+ * ----------------------------------------------------- */
+
+#custom-updates {
+    padding: 0px 2px 0px 4px;
+}
+
+@keyframes blink-update {
+  to { color: @tertiary; }
+}
+#custom-updates.pending-updates {
+  animation: 3s blink-update linear infinite alternate;
 }
 
 /* -----------------------------------------------------
- * Clock
+ * Idle Inhibitor
  * ----------------------------------------------------- */
 
-#clock {
-    border-radius: 3px 5px 3px 5px;
-    padding: 2px 10px 0px 10px;
+#idle_inhibitor.activated {
+    font-weight: bold;
+    opacity: 1.0;
+    color: @on_primary_container;
 }
 
 /* -----------------------------------------------------
- * Backlight
+ * clipboard history
  * ----------------------------------------------------- */
-#backlight-slider slider {
-  border-radius: 50%;
+#custom-clipboard {
+    padding: 0px 10px 0px 8px;
 }
-#backlight-slider trough {
-  min-height: 2px;
-  min-width: 80px;
-  border-radius: 5px;
-  background-color: @on_surface;
+
+/* -----------------------------------------------------
+ * Tray
+ * ----------------------------------------------------- */
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
 }
-#backlight-slider highlight {
-  min-width: 10px;
-  border-radius: 5px;
-  background-color: @primary;
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+}
+
+#tray menu { 
+  border-radius: 10px 10px 10px 10px;
+  background-color: @background;
+  color: @primary;
+}
+
+#tray > .active:hover {
+  color: @primary;
+  background: @inverse_primary;
+  border-radius: 5px 5px 5px 5px;
+}
+
+/* -----------------------------------------------------
+ * MPRIS (Media Player)
+ * ----------------------------------------------------- */
+#mpris {
+  padding: 0px 10px 0px 6px;
+}
+#mpris.stopped {
+  color: red;
+}
+#mpris.paused, #mpris.playing {
+  color: @primary;
+}
+#mpris.brave, #mpris.firefox, #mpris.vlc {
+  color: orange;
+}
+#mpris.spotify {
+  color: green;
+}
+#mpris.mpv {
+color: purple;
+}
+#mpris.kdeconnect {
+  color: lightblue;
 }
 
 /* -----------------------------------------------------
  * Audio (WirePlumber)
  * ----------------------------------------------------- */
+#wireplumber.sink,
+#wireplumber.source { color:@primary; }
+
 #wireplumber.sink.muted,
 #wireplumber.source.muted {
   color: @error;
@@ -250,12 +280,39 @@ window#waybar.empty #window {
   min-height: 2px;
   min-width: 80px;
   border-radius: 5px;
-  background-color: @on_surface;
+  background-color: @inverse_primary;
 }
 #pulseaudio-slider highlight{
   min-width: 10px;
   border-radius: 5px;
   background-color: @primary;
+}
+
+/* -----------------------------------------------------
+ * Backlight
+ * ----------------------------------------------------- */
+#backlight-slider slider {
+  border-radius: 50%;
+}
+#backlight-slider trough {
+  min-height: 2px;
+  min-width: 80px;
+  border-radius: 5px;
+  background-color: @inverse_primary;
+}
+#backlight-slider highlight {
+  min-width: 10px;
+  border-radius: 5px;
+  background-color: @primary;
+}
+
+/* -----------------------------------------------------
+ * hyprsunset
+ * ----------------------------------------------------- */
+
+#custom-hyprsunset {
+  margin: 0px 10px 0px 10px;
+  color: @primary;
 }
 
 /* -----------------------------------------------------
@@ -293,59 +350,29 @@ window#waybar.empty #window {
 }
 
 /* -----------------------------------------------------
- * MPRIS (Media Player)
+ * Power Profiles Daemon
  * ----------------------------------------------------- */
-#mpris {
-  padding: 0px 10px 0px 6px;
-}
-#mpris.stopped {
-  color: red;
-}
-#mpris.paused, #mpris.playing {
-  color: @primary;
-}
-#mpris.brave, #mpris.firefox, #mpris.vlc {
-  color: orange;
-}
-#mpris.spotify {
-  color: green;
-}
-#mpris.mpv {
-color: purple;
-}
-#mpris.kdeconnect {
-  color: lightblue;
+
+#power-profiles-daemon {
+    margin: 2px 0px 2px 2px;
 }
 
 /* -----------------------------------------------------
- * Tray
+ * Custom Notification
  * ----------------------------------------------------- */
 
-#tray > .passive {
-    -gtk-icon-effect: dim;
+#custom-notification {
+    padding: 0px 6px 0px 4px;
 }
 
-#tray > .needs-attention {
-    -gtk-icon-effect: highlight;
-}
-
-#tray menu { 
-  border-radius: 10px 10px 10px 10px;
-  background-color: @background;
-  color: @primary;
-}
-
-#tray > .active:hover {
-  color: @primary;
-  background: @inverse_primary;
-  border-radius: 5px 5px 5px 5px;
-}
 
 /* -----------------------------------------------------
- * Custom clipboard history
+ * Clock
  * ----------------------------------------------------- */
-#custom-clipboard {
-    padding: 0px 10px 0px 8px;
+
+#clock {
+    border-radius: 3px 5px 3px 5px;
+    padding: 2px 10px 0px 10px;
 }
 
 /* -----------------------------------------------------
@@ -367,11 +394,3 @@ color: purple;
 #custom-quit { color: yellow; }
 #custom-lock { color: lightblue; }
 #custom-suspend { color: lightgreen; }
-
-/* -----------------------------------------------------
- * hyprsunset
- * ----------------------------------------------------- */
-
-#custom-hyprsunset {
-  margin: 0px 10px 0px 10px;
-}
