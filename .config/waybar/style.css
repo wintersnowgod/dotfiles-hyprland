@@ -37,7 +37,7 @@ window#waybar {
   background: @primary_container;
   color: @on_primary_container;
   min-width: 30px;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 /* Center modules */
@@ -90,7 +90,7 @@ window#waybar {
   background: @primary_container;
   color: @on_primary_container;
   min-width: 30px;
-  font-size: 16px;
+  font-size: 14px;
 }
 /* -----------------------------------------------------
  * Workspaces
@@ -116,7 +116,7 @@ window#waybar {
   min-width: 30px;
   transition: all 0.1s linear;
   border-radius: 3px 3px 3px 3px;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 #workspaces button:hover {
