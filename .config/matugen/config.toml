@@ -47,10 +47,14 @@ input_path = '~/.config/matugen/templates/colors.css'
 output_path = '~/.config/nwg-dock-hyprland/colors.css'
 post_hook = 'nohup nwg-dock-hyprland -d -hd 500 -i 48 -lp start -c "wofi --show drun --width 40% --height 60% -x 500 -y 300" -p bottom -a center -ico "/usr/share/icons/Papirus-Dark/64x64/categories/distributor-logo-archlinux.svg" > /dev/null 2>&1 &'
 
-[templates.sequences]
-input_path = '~/.config/matugen/templates/sequences'
-output_path = '~/.cache/wal/sequences'
-
 [templates.color-scheme]
 input_path = '~/.config/matugen/templates/Matugen.colors'
 output_path = '~/.local/share/color-schemes/Matugen.colors'
+
+[templates.qt5ct]
+input_path = '~/.config/matugen/templates/qtct-colors.conf'
+output_path = '~/.config/qt5ct/colors/matugen.conf'
+
+[templates.qt6ct]
+input_path = '~/.config/matugen/templates/qtct-colors.conf'
+output_path = '~/.config/qt6ct/colors/matugen.conf'
