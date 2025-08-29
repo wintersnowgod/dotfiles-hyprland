@@ -393,4 +393,7 @@ color: purple;
 #custom-reboot { color: orange; }
 #custom-quit { color: yellow; }
 #custom-lock { color: lightblue; }
-#custom-suspend { color: lightgreen; }
+#custom-suspend {
+  color: lightgreen;
+  padding: 0px 20px 0px 0px;
+}
