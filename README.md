@@ -12,6 +12,20 @@ My dotfiles for hyprland in Arch Linux
 3. Install the dependencies.
 4. Either restart or logout and login (Recommended to restart).
 
+
+NOTES:  
+  To update the color palate according to the wallpaper  
+- Either  
+change wallpapers using waypaper  
+- OR Either  
+Log Out and Login which will execute the auto start script for this
+- OR  
+use this command:
+```
+matugen image $(hyprctl hyprpaper listloaded)
+```
+  If this command doesnot work then replace `$(hyprctl hyprpaper listloaded)` with path to your wallpaper.
+
 ## Dependencies
 ### Pacman pkgs
 ```
