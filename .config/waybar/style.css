@@ -181,7 +181,7 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #custom-updates {
-    padding: 0px 10px 0px 5px;
+    padding: 0px 2px 0px 4px;
 }
 
 @keyframes blink-update {
@@ -311,7 +311,6 @@ window#waybar.empty #window {
 /* -----------------------------------------------------
  * MPRIS (Media Player)
  * ----------------------------------------------------- */
-/* mpris */
 #mpris {
   padding: 0px 10px 0px 6px;
 }
