@@ -5,7 +5,7 @@ if [ "$1" = "toggle" ]; then
     pkill hyprsunset &
     notify-send -t 700 "Hyprsunset stopped"
   else
-    hyprsunset &
+    setsid hyprsunset >/dev/null 2>&1 &
     notify-send -t 700 "Hyprsunset started"
   fi
 fi
