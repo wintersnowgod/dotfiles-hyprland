@@ -26,6 +26,7 @@ cliphist \
 dolphin \
 fastfetch \
 firefox \
+flatpak \
 gnome-keyring \
 hypridle \
 hyprland \
@@ -96,4 +97,10 @@ libappimage
 ```
 yay -S \
 kde-thumbnailer-apk
+```
+
+- Nepali calendar Widget
+```
+yay -S \
+nepdate
 ```
