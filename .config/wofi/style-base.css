@@ -1,0 +1,75 @@
+/* -----------------------------------------------------------------------------
+ *                                      wofi
+ *   ----------------------------------------------------------------------------- */
+
+@import 'colors.css';
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: JetBrainsMono Nerd Font, monospace;
+    font-size: 12px;
+    min-height: 0;
+}
+
+/* Window styling */
+#window {
+background: @background;
+color: @primary;
+border: 2px solid @inverse_primary;
+border-radius: 8px;
+}
+
+/* Input field */
+#input {
+background: @primary_container;
+border: none;
+border-radius: 6px;
+padding: 8px 12px;
+color: @primary;
+caret-color: #5865f2;
+margin-bottom: 8px;
+}
+
+/* Entry items */
+#entry {
+padding: 8px 12px;
+border-radius: 6px;
+background: transparent;
+transition: all 0.15s ease;
+color: @primary;
+}
+
+/* Selected entry - less intense blue */
+#entry:selected {
+background: @primary_container;
+color: @primary;
+}
+
+/* Hover effects */
+#entry:hover {
+background: @primary_container;
+}
+
+/* Image elements */
+#img {
+margin-right: 8px;
+}
+
+/* Text elements */
+#text {
+color: inherit;
+}
+
+/* Expander box */
+#expander-box {
+background: @secondary_container;
+border-radius: 6px;
+padding: 8px 12px;
+color: @primary;
+}
+
+/* Scroll container */
+#scroll {
+margin: 8px 0;
+}
