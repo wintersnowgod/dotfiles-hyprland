@@ -31,9 +31,9 @@ show_actions_submenu = false
 [windows.overview.launcher.plugins.shell]
 
 [[windows.overview.launcher.plugins.websearch.engines]]
-url = "https://duckduckgo.com/?q={}"
-name = "DuckDuckGo"
-key = "d"
+url = "http://localhost:8181/search?q={}"
+name = "SearXNG"
+key = "s"
 
 [windows.overview.launcher.plugins.calc]
 
