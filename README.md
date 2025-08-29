@@ -25,6 +25,7 @@ brightnessctl \
 cliphist \
 dolphin \
 fastfetch \
+firefox \
 gnome-keyring \
 hypridle \
 hyprland \
@@ -36,6 +37,7 @@ hyprshot \
 hyprsunset \
 papirus-icon-theme \
 xdg-desktop-portal-hyprland \
+xdg-desktop-portal-gtk \
 kate \
 kio-admin \
 kitty \
