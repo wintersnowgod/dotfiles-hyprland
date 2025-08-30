@@ -51,6 +51,7 @@ flatpak override --user \
 --filesystem=~/.themes:ro \
 --filesystem=~/.local/share/themes:ro
 ```
+4. I use `tuned-pdd` for power management. You can substitute it for `power-profiles-daemon`.
   
 ## Dependencies
 ### Pacman pkgs
@@ -89,6 +90,7 @@ pacman-contrib \
 pavucontrol \
 swaync \
 ttf-hack-nerd \
+tuned-ppd \
 udiskie \
 waybar \
 wofi \
