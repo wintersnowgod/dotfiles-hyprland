@@ -19,13 +19,12 @@ window#waybar {
 #network,
 #window,
 #language {
-  font-size: 12px;
-  padding: 0px 6px;
-  margin: 3px 2px;
-  border-radius: 5px 5px 5px 5px;
   background: @background;
   color: @primary;
+  font-size: 12px;
+  margin: 3px 2px;
   border: 1px solid @inverse_primary;
+  border-radius: 5px 5px 5px 5px;
 }
 
 #custom-menu:hover,
@@ -62,13 +61,12 @@ window#waybar {
 #custom-notification,
 #clock,
 #powermodules {
-  font-size: 12px;
-  padding: 0px 6px;
-  margin: 3px 2px;
-  border-radius: 5px 5px 5px 5px;
   background-color: @background;
   color: @primary;
+  font-size: 12px;
+  margin: 3px 2px;
   border: 1px solid @inverse_primary;
+  border-radius: 5px 5px 5px 5px;
 }
 
 /* Hover effect for right-side modules */
@@ -87,9 +85,11 @@ window#waybar {
   color: @on_primary_container;
   transition: all 0.1s ease-in-out;
 }
+
 /* -----------------------------------------------------
  * Workspaces
  * ----------------------------------------------------- */
+
 #workspaces {
   margin: 2px 18px 3px 1px;
   padding: 0px 2px;
@@ -97,14 +97,12 @@ window#waybar {
   font-style: normal;
   color: @primary;
 }
-
 #workspaces button {
   padding: 0px 6px;
   margin: 3px 2px;
   color: @primary;
   transition: all 0.1s linear;
 }
-
 #workspaces button.active {
   color: @on_primary_container;
   background: @primary_container;
@@ -113,7 +111,6 @@ window#waybar {
   border-radius: 3px 3px 3px 3px;
   font-size: 14px;
 }
-
 #workspaces button:hover {
   color: @on_primary_container;
   background: @primary_container;
@@ -127,9 +124,7 @@ window#waybar {
 tooltip {
   border-radius: 10px;
   padding: 5px;
-  margin: 0px;
 }
-
 tooltip label {
   color: @primary;
 }
@@ -155,21 +150,34 @@ tooltip label {
 
 #disk,#memory,#cpu,#temperature {
     padding: 0px 6px;
-    margin: 3px 2px;
 }
 
 /* -----------------------------------------------------
  * Network
  * ----------------------------------------------------- */
 
+#network {
+    padding: 0px 10px 0px 6px;
+}
 #network.disconnected {
   color: @error;
+}
+
+/* -----------------------------------------------------
+ * Language
+ * ----------------------------------------------------- */
+
+#language {
+    padding: 0px 6px 0px 4px;
 }
 
 /* -----------------------------------------------------
  * Window
  * ----------------------------------------------------- */
 
+#window {
+    padding: 0px 10px 0px 6px;
+}
 window#waybar.empty #window {
     background-color: transparent;
     border: none;
@@ -182,13 +190,19 @@ window#waybar.empty #window {
 /* ----------------------------------------------------- */
 
 /* -----------------------------------------------------
+ * Privacy (Mic & Camera)
+ * ----------------------------------------------------- */
+#privacy {
+    padding: 0px 6px 0px 4px;
+}
+
+/* -----------------------------------------------------
  * Custom Updates
  * ----------------------------------------------------- */
 
 #custom-updates {
     padding: 0px 2px 0px 4px;
 }
-
 @keyframes blink-update {
   to { color: @tertiary; }
 }
@@ -199,16 +213,19 @@ window#waybar.empty #window {
 /* -----------------------------------------------------
  * Idle Inhibitor
  * ----------------------------------------------------- */
-
+#idle_inhibitor {
+    padding: 0px 6px 0px 6px;
+}
 #idle_inhibitor.activated {
     font-weight: bold;
     opacity: 1.0;
-    color: @on_primary_container;
+    color: @tertiary;
 }
 
 /* -----------------------------------------------------
  * clipboard history
  * ----------------------------------------------------- */
+
 #custom-clipboard {
     padding: 0px 10px 0px 8px;
 }
@@ -217,29 +234,30 @@ window#waybar.empty #window {
  * Tray
  * ----------------------------------------------------- */
 
-#tray > .passive {
-    -gtk-icon-effect: dim;
+#tray {
+    padding: 0px 6px 0px 4px;
 }
-
-#tray > .needs-attention {
-    -gtk-icon-effect: highlight;
-}
-
 #tray menu { 
   border-radius: 10px 10px 10px 10px;
   background-color: @background;
   color: @primary;
 }
-
 #tray > .active:hover {
   color: @primary;
   background: @inverse_primary;
   border-radius: 5px 5px 5px 5px;
 }
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+}
 
 /* -----------------------------------------------------
  * MPRIS (Media Player)
  * ----------------------------------------------------- */
+
 #mpris {
   padding: 0px 10px 0px 6px;
 }
@@ -265,13 +283,18 @@ color: purple;
 /* -----------------------------------------------------
  * Audio (WirePlumber)
  * ----------------------------------------------------- */
-#wireplumber.sink,
-#wireplumber.source { color:@primary; }
 
-#wireplumber.sink.muted,
-#wireplumber.source.muted {
+#wireplumber.sink, #wireplumber.source { 
+  color:@primary;
+  padding: 0px 6px 0px 6px;
+}
+#wireplumber.sink.muted, #wireplumber.source.muted {
   color: @error;
 }
+
+/* -----------------------------------------------------
+ * PulseAudio Slider
+ * ----------------------------------------------------- */
 
 #pulseaudio-slider slider {
   border-radius: 50%;
@@ -291,6 +314,15 @@ color: purple;
 /* -----------------------------------------------------
  * Backlight
  * ----------------------------------------------------- */
+
+#backlight {
+    padding: 0px 6px 0px 6px;
+}
+
+/* -----------------------------------------------------
+ * Backlight Slider
+ * ----------------------------------------------------- */
+
 #backlight-slider slider {
   border-radius: 50%;
 }
@@ -311,7 +343,7 @@ color: purple;
  * ----------------------------------------------------- */
 
 #custom-hyprsunset {
-  margin: 0px 10px 0px 10px;
+  padding: 0px 12px 0px 12px;
   color: @primary;
 }
 
@@ -319,10 +351,12 @@ color: purple;
  * Bluetooth
  * ----------------------------------------------------- */
 
-#bluetooth, #bluetooth.on, #bluetooth.connected {
+#bluetooth {
+    padding: 0px 6px 0px 6px;
+}
+#bluetooth.on, #bluetooth.connected {
     color: @primary;
 }
-
 #bluetooth.disabled, #bluetooth.off, #bluetooth.no-controller {
   color: @error;
 }
@@ -330,6 +364,9 @@ color: purple;
 /* -----------------------------------------------------
  * Battery
  * ----------------------------------------------------- */
+#battery {
+    padding: 0px 6px 0px 6px;
+}
 #battery.charging {
   color: lightgreen;
 }
@@ -354,7 +391,7 @@ color: purple;
  * ----------------------------------------------------- */
 
 #power-profiles-daemon {
-    margin: 2px 0px 2px 2px;
+  padding: 0px 0px 0px 15px;
 }
 
 /* -----------------------------------------------------
@@ -362,38 +399,42 @@ color: purple;
  * ----------------------------------------------------- */
 
 #custom-notification {
-    padding: 0px 6px 0px 4px;
+    padding: 0px 9px 0px 8px;
 }
-
 
 /* -----------------------------------------------------
  * Clock
  * ----------------------------------------------------- */
 
 #clock {
-    border-radius: 3px 5px 3px 5px;
-    padding: 2px 10px 0px 10px;
+    padding: 0px 10px 0px 10px;
 }
 
 /* -----------------------------------------------------
  * powermodules (Shutdown, Reboot, Logout, Lock, Suspend)
  * ----------------------------------------------------- */
-#powermodules {
+
+#custom-power {
+  font-size: 15px;
   padding: 0px 5px 0px 11px;
-  margin: 3px 2px;
 }
-
-#custom-power { font-size: 15px; }
-
-#custom-shutdown, #custom-reboot, #custom-quit, #custom-lock, #custom-suspend {
+#custom-shutdown {
   padding: 0px 15px 0px 5px;
-  margin: 3px 2px 3px 5px;
+  color: red;
 }
-#custom-shutdown { color: red; }
-#custom-reboot { color: orange; }
-#custom-quit { color: yellow; }
-#custom-lock { color: lightblue; }
+#custom-reboot {
+  padding: 0px 15px 0px 5px;
+  color: orange;
+}
+#custom-quit {
+  padding: 0px 15px 0px 5px;
+  color: yellow;
+}
+#custom-lock {
+  padding: 0px 15px 0px 5px;
+  color: lightblue;
+}
 #custom-suspend {
+  padding: 0px 15px 0px 5px;
   color: lightgreen;
-  padding: 0px 20px 0px 0px;
 }
