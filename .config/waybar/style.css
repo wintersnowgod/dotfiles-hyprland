@@ -83,9 +83,9 @@ window#waybar {
 #custom-notification:hover,
 #clock:hover,
 #powermodules:hover {
-  transition: all 0.1s ease-in-out;
   background: @primary_container;
   color: @on_primary_container;
+  transition: all 0.1s ease-in-out;
 }
 /* -----------------------------------------------------
  * Workspaces
