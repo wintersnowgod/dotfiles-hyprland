@@ -38,23 +38,23 @@
             "type": "kernel"
         },
         {
-            "key": "│ {#36} wm      {#keys}│",
+            "key": "│ {#36} wm      {#keys}│",
             "type": "wm"
         },
         {
-            "key": "│ {#33} theme   {#keys}│",
+            "key": "│ {#33}󰔎 theme   {#keys}│",
             "type": "theme"
         },
         {
-            "key": "│ {#35} icons   {#keys}│",
+            "key": "│ {#35} icons   {#keys}│",
             "type": "icons"
         },
         {
-            "key": "│ {#36} font    {#keys}│",
+            "key": "│ {#36}󰛖 font    {#keys}│",
             "type": "font"
         },
         {
-            "key": "│ {#34} cursor  {#keys}│",
+            "key": "│ {#34}󰇀 cursor  {#keys}│",
             "type": "cursor"
         },
         {
@@ -70,7 +70,7 @@
             "type": "shell"
         },
         {
-            "key": "│ {#33} packages{#keys}│",
+            "key": "│ {#33} packages{#keys}│",
             "type": "packages"
         },
         {
@@ -83,11 +83,11 @@
             "type": "gpu"
         },
         {
-            "key": "│ {#36} memory  {#keys}│",
+            "key": "│ {#36} memory  {#keys}│",
             "type": "memory"
         },
         {
-            "key": "│ {#37} swap    {#keys}│",
+            "key": "│ {#37} swap    {#keys}│",
             "type": "swap"
         },
         {
