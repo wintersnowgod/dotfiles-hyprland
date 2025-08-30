@@ -79,7 +79,7 @@ hyprshot \
 hyprsunset \
 papirus-icon-theme \
 xdg-desktop-portal-hyprland \
-xdg-desktop-portal-kde \
+xdg-desktop-portal-gtk \
 kate \
 kio-admin \
 kitty \
