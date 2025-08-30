@@ -170,16 +170,18 @@
 
 	"cpu": {
 		"format": " {usage}%",
+		"interval": 1,
 		"on-click": "~/.config/waybar/scripts/system-monitor.sh"
 	},
 
 	"memory": {
 		"format": " {}%",
+		"interval": 1,
 		"on-click": "~/.config/waybar/scripts/system-monitor.sh"
 	},
 
 	"temperature": {
-		"interval": 10,
+		"interval": 1,
 		"critical-threshold": 100,
 		"format-critical": " {temperatureC}",
 		"format": " {temperatureC}°C",
