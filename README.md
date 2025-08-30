@@ -31,7 +31,7 @@ matugen image $(hyprctl hyprpaper listloaded)
 3. For theming of gtk apps in flatpak do this command  
 - For system wide flatpak apps  
 ```
-flatpak override \
+sudo flatpak override \
 --filesystem=~/.gtkrc-2.0:ro \
 --filesystem=~/.config/gtk-3.0:ro \
 --filesystem=~/.config/gtk-4.0:ro \
