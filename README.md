@@ -14,7 +14,7 @@ My dotfiles for hyprland in Arch Linux
 
 
 NOTES:  
-  To update the color palate according to the wallpaper  
+1. To update the color palate according to the wallpaper  
 - Either  
 change wallpapers using waypaper  
 - OR Either  
@@ -25,12 +25,37 @@ use this command:
 matugen image $(hyprctl hyprpaper listloaded)
 ```
   If this command doesnot work then replace `$(hyprctl hyprpaper listloaded)` with path to your wallpaper.
-
+  
+2. I use kde over gtk for file chooser portal. because the default gtk file chooser wasnot getting themed and was always in light mode.For using kde file chooser in firefox copy the `user.js` from the .mozilla folder to `~/.mozilla/(yourprofile)/user.js`.  
+  
+3. For theming of gtk apps in flatpak do this command  
+- For system wide flatpak apps  
+```
+flatpak override \
+--filesystem=~/.gtkrc-2.0:ro \
+--filesystem=~/.config/gtk-3.0:ro \
+--filesystem=~/.config/gtk-4.0:ro \
+--filesystem=~/.icons:ro \
+--filesystem=~/.local/share/icons:ro \
+--filesystem=~/.themes:ro \
+--filesystem=~/.local/share/themes:ro
+```
+- For User flatpak apps  
+```
+flatpak override --user \
+--filesystem=~/.gtkrc-2.0:ro \
+--filesystem=~/.config/gtk-3.0:ro \
+--filesystem=~/.config/gtk-4.0:ro \
+--filesystem=~/.icons:ro \
+--filesystem=~/.local/share/icons:ro \
+--filesystem=~/.themes:ro \
+--filesystem=~/.local/share/themes:ro
+```
+  
 ## Dependencies
 ### Pacman pkgs
 ```
 sudo pacman -S \
-adw-gtk-theme \
 archlinux-xdg-menu \
 blueman \
 bluez-utils \
@@ -52,7 +77,7 @@ hyprshot \
 hyprsunset \
 papirus-icon-theme \
 xdg-desktop-portal-hyprland \
-xdg-desktop-portal-gtk \
+xdg-desktop-portal-kde \
 kate \
 kio-admin \
 kitty \
