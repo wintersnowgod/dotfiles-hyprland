@@ -8,8 +8,8 @@ items_per_row = 5
 
 [windows.overview]
 strip_html_from_workspace_title = true
-key = "super_l"
-modifier = "super"
+key = "alt_l"
+modifier = "alt"
 filter_by = []
 hide_filtered = false
 
