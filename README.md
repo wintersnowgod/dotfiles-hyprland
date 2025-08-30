@@ -12,7 +12,6 @@ My dotfiles for hyprland in Arch Linux
 3. Install the dependencies.
 4. Either restart or logout and login (Recommended to restart).
 
-
 NOTES:  
 1. To update the color palate according to the wallpaper  
 - Either  
@@ -24,9 +23,9 @@ use this command:
 ```
 matugen image $(hyprctl hyprpaper listloaded)
 ```
-  If this command doesnot work then replace `$(hyprctl hyprpaper listloaded)` with path to your wallpaper.
+  If this command doesnot work then replace `$(hyprctl hyprpaper listloaded)` with path to your wallpaper.  
   
-2. I use kde over gtk for file chooser portal. because the default gtk file chooser wasnot getting themed and was always in light mode.For using kde file chooser in firefox copy the `user.js` from the .mozilla folder to `~/.mozilla/(yourprofile)/user.js`.  
+2. If you want to use kde over gtk for file chooser portal then you can replace `xdg-desktop-portal-gtk` with `xdg-desktop-portal-kde`.  
   
 3. For theming of gtk apps in flatpak do this command  
 - For system wide flatpak apps  
@@ -51,8 +50,10 @@ flatpak override --user \
 --filesystem=~/.themes:ro \
 --filesystem=~/.local/share/themes:ro
 ```
-4. I use `tuned-ppd` for power management. You can substitute it for `power-profiles-daemon`.
+4. I use `tuned-ppd` for power management. You can substitute it with `power-profiles-daemon`.
   
+4. There is user.js file in .mozilla folder. There are some tweaks I like to use. If you want you can copy that to your firefox profile folder ie `~/.mozilla/(your profile)/user.js`.
+
 ## Dependencies
 ### Pacman pkgs
 ```
