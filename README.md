@@ -56,6 +56,7 @@ flatpak override --user \
 ### Pacman pkgs
 ```
 sudo pacman -S \
+adw-gtk-theme \
 archlinux-xdg-menu \
 blueman \
 bluez-utils \
