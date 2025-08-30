@@ -12,9 +12,9 @@ fi
 
 # -------- Waybar refresh branch --------
 if pgrep -x hyprsunset >/dev/null; then
-  echo '{"text":"󱩌"}'
+  echo '{"text":"󱩌", "tooltip": "Hyprsunset: ON"}'
 else
-  echo '{"text":"󰹏"}'
+  echo '{"text":"󰹏", "tooltip": "Hyprsunset: OFF"}'
 fi
 
 # tell waybar to refresh this module

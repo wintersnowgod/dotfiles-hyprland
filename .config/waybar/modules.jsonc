@@ -374,10 +374,10 @@
 	"custom/hyprsunset": {
 		"format": "{}",
 		"signal": 10,
+		"interval": "once",
 		"return-type": "json",
 		"on-click": "/home/rosl/.config/waybar/scripts/hyprsunset.sh toggle",
-		"exec": "/home/rosl/.config/waybar/scripts/hyprsunset.sh",
-		"tooltip-format": "Toggle Hyprsunset"
+		"exec": "/home/rosl/.config/waybar/scripts/hyprsunset.sh"
     },
 // Custom
 	"custom/updates": {
