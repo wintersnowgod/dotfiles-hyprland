@@ -355,7 +355,12 @@
   margin: 8px;
 }
 
+.widget-dnd switch:checked {
+  background-color: @on_primary_container;
+}
+
 .widget-dnd switch slider {
+  background-color: var(--bg-selected);
   border-radius: 5px;
 }
 
