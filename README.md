@@ -52,7 +52,9 @@ flatpak override --user \
 ```
 4. I use `tuned-ppd` for power management. You can substitute it with `power-profiles-daemon`.
   
-4. There is user.js file in .mozilla folder. There are some tweaks I like to use. If you want you can copy that to your firefox profile folder ie `~/.mozilla/(your profile)/user.js`.
+5. There is user.js file in .mozilla folder. There are some tweaks I like to use. If you want you can copy that to your firefox profile folder ie `~/.mozilla/(your profile)/user.js`.
+
+6. Dolphin open with fix. Install `archlinux-xdg-menu` and make sure `env = XDG_MENU_PREFIX,arch-` is set on the hyprland config. (It is enabled on my configs and the pkg is in the pkg list below) then run `kbuildsyscoca6` once and it should be okay. If it somehow becomes empty again (installing `xdg-desktop-portal-kde` did it for me) then rerun the command again.
 
 ## Dependencies
 ### Pacman pkgs
