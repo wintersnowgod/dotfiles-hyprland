@@ -340,7 +340,15 @@
 
 .widget-title > button {
   margin: 8px;
-  border-radius: 12px;
+  border-radius: 5px;
+}
+
+.widget-title > button:hover {
+  background-color: var(--noti-bg-hover);
+}
+
+.widget-title > button:disabled {
+  background-color: var(--text-color-disabled);
 }
 
 /* DND widget */
@@ -356,7 +364,11 @@
 }
 
 .widget-dnd switch:checked {
-  background-color: @on_primary_container;
+  background-color: var(--text-color);
+}
+
+.widget-dnd switch:not(:checked) {
+  background-color: var(--text-color-disabled);
 }
 
 .widget-dnd switch slider {
