@@ -40,5 +40,14 @@ export EDITOR='nvim'
 export VISUAL='nvim'
 export MANPAGER='nvim +Man!'
 
+# Launch yaft if available
+if command -v yaft >/dev/null 2>&1; then
+  case "$TERM" in
+    linux)
+      exec yaft
+      ;;
+  esac
+fi
+
 # Exec
 fastfetch

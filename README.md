@@ -149,3 +149,15 @@ kde-thumbnailer-apk
 yay -S \
 nepdate
 ```
+  
+- yaft (yet another framebuffer terminal)  
+```
+yay -S \
+yaft-git
+```
+  
+- Chawan (Terminal internet browser-requires yaft for image rendering in tty)  
+```
+yay -S \
+chawan
+```
