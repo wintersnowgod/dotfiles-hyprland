@@ -294,7 +294,7 @@
 	},
 
 // Power
-	"group/powermodules": {
+	"group/poweroptions": {
 		"orientation": "inherit",
 		"drawer": {
 			"click-to-reveal": true,

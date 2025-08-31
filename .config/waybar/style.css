@@ -60,7 +60,7 @@ window#waybar {
 #batterypower,
 #custom-notification,
 #clock,
-#powermodules {
+#poweroptions {
   background-color: @background;
   color: @primary;
   font-size: 12px;
@@ -80,7 +80,8 @@ window#waybar {
 #batterypower:hover,
 #custom-notification:hover,
 #clock:hover,
-#powermodules:hover {
+#poweroptions:hover,
+#custom-power:hover {
   background: @primary_container;
   color: @on_primary_container;
   transition: all 0.1s ease-in-out;
@@ -415,7 +416,7 @@ color: purple;
 }
 
 /* -----------------------------------------------------
- * powermodules (Shutdown, Reboot, Logout, Lock, Suspend)
+ * poweroptions (Shutdown, Reboot, Logout, Lock, Suspend)
  * ----------------------------------------------------- */
 
 #custom-power {
@@ -423,22 +424,22 @@ color: purple;
   padding: 0px 5px 0px 11px;
 }
 #custom-shutdown {
-  padding: 0px 15px 0px 5px;
+  padding: 0px 15px 0px 15px;
   color: red;
 }
 #custom-reboot {
-  padding: 0px 15px 0px 5px;
+  padding: 0px 15px 0px 10px;
   color: orange;
 }
 #custom-quit {
-  padding: 0px 15px 0px 5px;
+  padding: 0px 15px 0px 10px;
   color: yellow;
 }
 #custom-lock {
-  padding: 0px 15px 0px 5px;
+  padding: 0px 15px 0px 10px;
   color: lightblue;
 }
 #custom-suspend {
-  padding: 0px 15px 0px 5px;
+  padding: 0px 15px 0px 10px;
   color: lightgreen;
 }
