@@ -80,12 +80,12 @@ hyprpm disable hyprbars
 ```
 hyprpm update
 ```
-- Ok now for the plugins and remotes I use hyprbars(for titlebars), hyprgrass (for touchscreen gestures)  
+- Ok now for the plugins and remotes I use hyprbars(for titlebars), hyprgrass (for touchscreen gestures), hyprexpo and Hyprspace (workspace overview)   
 ``` 
 hyprpm add https://github.com/hyprwm/hyprland-plugins
-hyprpm add https://github.com/horriblename/hyprgrass
 sudo pacman -S glm #required by hyprgrass
 sudo pacman -S meson ninja --asdeps #required by hyprgrass as makedeps
+hyprpm add https://github.com/horriblename/hyprgrass
 hyprpm add https://github.com/KZDKM/Hyprspace
 hyprpm enable hyprbars
 hyprpm enable hyprexpo
