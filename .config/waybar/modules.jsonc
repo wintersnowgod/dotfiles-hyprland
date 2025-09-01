@@ -1,8 +1,8 @@
 {
 	"custom/menu": {
 		"format": "󰣇",
-		"on-click": "~/.config/waybar/scripts/wofi.sh",
-		"tooltip-format": "Show Wofi Menu"
+		"on-click": "nwg-drawer",
+		"tooltip-format": "Show App Menu"
 	},
 
 	// Workspaces
@@ -27,13 +27,6 @@
 	"hyprland/window": {
 		"max-length": 60,
 		"format": "{class}",
-		"rewrite": {
-		"(.*) - Brave": "$1",
-		"(.*) - Chromium": "$1",
-		"(.*) - Brave Search": "$1",
-		"(.*) - Outlook": "$1",
-		"(.*) Microsoft Teams": "$1"
-		},
 		"separate-outputs": true,
 		"icon": true
 	},
@@ -427,5 +420,14 @@
 		"on-click": "swaync-client -t",
 		"on-click-right": "swaync-client -d",
 		"escape": true
+	},
+	//on-screen-keyboard
+	"custom/keyboard": {
+		"format": "{}",
+		"signal": 15,
+		"interval": "once",
+		"return-type": "json",
+		"on-click": "/home/rosl/.config/waybar/scripts/keyboard.sh toggle",
+		"exec": "/home/rosl/.config/waybar/scripts/keyboard.sh"
 	}
 }

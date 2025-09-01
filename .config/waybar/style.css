@@ -48,6 +48,7 @@ window#waybar {
 }
 
 /* Right modules */
+#custom-keyboard,
 #custom-updates,
 #privacy,
 #idle_inhibitor,
@@ -71,6 +72,7 @@ window#waybar {
 
 /* Hover effect for right-side modules */
 #custom-updates:hover,
+#custom-keyboard:hover,
 #idle_inhibitor:hover,
 #custom-clipboard:hover,
 #mpris:hover,
@@ -197,6 +199,7 @@ window#waybar.empty #window {
 /* -----------------------------------------------------
  * Privacy (Mic & Camera)
  * ----------------------------------------------------- */
+
 #privacy {
     padding: 0px 6px 0px 4px;
 }
@@ -213,6 +216,14 @@ window#waybar.empty #window {
 }
 #custom-updates.pending-updates {
   animation: 3s blink-update linear infinite alternate;
+}
+
+/* -----------------------------------------------------
+ * On screen keyboard
+ * ----------------------------------------------------- */
+
+#custom-keyboard {
+  padding: 0px 10px 0px 6px;
 }
 
 /* -----------------------------------------------------
