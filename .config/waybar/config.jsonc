@@ -22,8 +22,9 @@
         "hyprland/workspaces"
     ],
     "modules-right": [
-        "custom/updates",
         "privacy",
+        "custom/updates",
+        "custom/keyboard",
         "idle_inhibitor",
         "custom/clipboard",
         "tray",
