@@ -11,6 +11,9 @@ if ! command -v ff >/dev/null 2>&1; then alias ff='fastfetch'; fi
 if ! command -v c >/dev/null 2>&1; then alias c='clear'; fi
 if ! command -v startupwmclass >/dev/null 2>&1; then alias startupwmclass='xprop | grep WM_CLASS'; fi
 
+#qrcode
+if ! command -v qrgen >/dev/null 2>&1; then alias qrgen='qrencode -t UTF8'; fi
+
 # shizuku
 if ! command -v shizuku-start >/dev/null 2>&1; then alias shizuku-start='adb shell sh /storage/emulated/0/Android/data/moe.shizuku.privileged.api/start.sh';fi
 
