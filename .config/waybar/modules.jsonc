@@ -191,6 +191,7 @@
 	// Network
 	"network": {
 		"format": "{ifname}",
+		"interval": 1,
 		"format-wifi": "{icon}   {bandwidthUpBytes}  {bandwidthDownBytes}",
 		"format-ethernet": "󰌘  {bandwidthUpBytes}  {bandwidthDownBytes}",
 		"format-disconnected": "⚠",
