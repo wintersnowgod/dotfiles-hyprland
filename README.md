@@ -1,25 +1,25 @@
-# dotfiles-hyprland
-My dotfiles for hyprland in Arch Linux
+# dotfiles-hyprland  
+My dotfiles for hyprland in Arch Linux  
 
-## Preview
+## Preview  
 <p align="center">
   <img src="Images/Screenshot.png" alt="Screenshot" width="100%"/>
 </p>
-
-## Instructions
-1. Make a backup of your dotfiles.
-2. Copy the dotfiles from this repo to the appropriate location.
-3. Install the dependencies.
-4. Either restart or logout and login (Recommended to restart).
-
+  
+## Instructions  
+1. Make a backup of your dotfiles.  
+2. Copy the dotfiles from this repo to the appropriate location.  
+3. Install the dependencies.  
+4. Either restart or logout and login (Recommended to restart).  
+  
 NOTES:  
 1. To update the color palate according to the wallpaper  
 - Either  
 change wallpapers using waypaper  
 - OR Either  
-Log Out and Login which will execute the auto start script for this
+Log Out and Login which will execute the auto start script for this  
 - OR  
-use this command:
+use this command:  
 ```
 matugen image $(hyprctl hyprpaper listloaded)
 ```
@@ -50,11 +50,76 @@ flatpak override --user \
 --filesystem=~/.themes:ro \
 --filesystem=~/.local/share/themes:ro
 ```
-4. I use `tuned-ppd` for power management. You can substitute it with `power-profiles-daemon`.
+4. I use `tuned-ppd` for power management. You can substitute it with `power-profiles-daemon`.  
+    
+5. There is user.js file in .mozilla folder. There are some tweaks I like to use. If you want you can copy that to your firefox profile folder ie `~/.mozilla/(your profile)/user.js`.  
   
-5. There is user.js file in .mozilla folder. There are some tweaks I like to use. If you want you can copy that to your firefox profile folder ie `~/.mozilla/(your profile)/user.js`.
+6. Dolphin open with fix. Install `archlinux-xdg-menu` and make sure `env = XDG_MENU_PREFIX,arch-` is set on the hyprland config. (It is enabled on my configs and the pkg is in the pkg list below) then run `kbuildsyscoca6` once and it should be okay. If it somehow becomes empty again (installing `xdg-desktop-portal-kde` did it for me) then rerun the command again.  
+  
+7. HYPRLAND PLUGINS  
+- `hyprpm` is used to install hyprland plugins  
+- The official plugin repo can be added to hyprpm by  
+```
+hyprpm add https://github.com/hyprwm/hyprland-plugins
+```
+- Then to list all the available plugins  
+```
+hyprpm list
+```
+- To enable plugins  
+eg: `hyprbars`  
+```
+hyprpm enable hyprbars
+```
+- To disable plugins  
+eg: `hyprbars`  
+```
+hyprpm disable hyprbars
+```
+- To update plugins  
+```
+hyprpm update
+```
+- Ok now for the plugins and remotes I use hyprbars(for titlebars), hyprgrass (for touchscreen gestures)  
+``` 
+hyprpm add https://github.com/hyprwm/hyprland-plugins
+hyprpm add https://github.com/horriblename/hyprgrass
+sudo pacman -S glm #required by hyprgrass
+sudo pacman -S meson ninja --asdeps #required by hyprgrass as makedeps
+hyprpm add https://github.com/KZDKM/Hyprspace
+hyprpm enable hyprbars
+hyprpm enable hyprexpo
+hyprpm enable hyprgrass
+hyprpm enable Hyprspace
+```
+  
+- If there is error during `hyprpm enable/disable` then run  
+```
+hyprpm update
+```
 
-6. Dolphin open with fix. Install `archlinux-xdg-menu` and make sure `env = XDG_MENU_PREFIX,arch-` is set on the hyprland config. (It is enabled on my configs and the pkg is in the pkg list below) then run `kbuildsyscoca6` once and it should be okay. If it somehow becomes empty again (installing `xdg-desktop-portal-kde` did it for me) then rerun the command again.
+8. In order to auto rotate when tilted on touch screen devices use `iio-hyprland-git` pkg.  
+for it to work I had to specify my monitor in the hyprland config as  
+```
+monitor=eDP-1,preferred,auto,1,transform,0
+```
+If you want this feature replace `eDP-1` with your monitor name  
+If you dont want this feature just use  
+```
+monitor=,preferred,auto,1
+```
+if you dont need auto rotate functionality  
+
+9. On Screen Keyboard   
+- I use `squeekboard`. Enable it by command   
+```
+gsettings set org.gnome.desktop.a11y.applications screen-keyboard-enabled true
+```
+then it can be launched with command   
+```
+squeekboard
+```
+- This keyboard is problamatic with fcitx5 so i have custom waybar module to enable/disable it.
 
 ## Dependencies
 ### Pacman pkgs
@@ -71,6 +136,7 @@ dolphin \
 fastfetch \
 firefox \
 flatpak \
+glm \
 gnome-keyring \
 hypridle \
 hyprland \
@@ -88,9 +154,11 @@ kio-admin \
 kitty \
 loupe \
 nwg-dock-hyprland \
+nwg-drawer \
 nwg-look \
 pacman-contrib \
 pavucontrol \
+squeekboard \
 swaync \
 ttf-hack-nerd \
 tuned-ppd \
@@ -110,6 +178,7 @@ yay -S \
 darkly-bin \
 hyprshell \
 hyprsysteminfo \
+iio-hyprland-git \
 matugen-bin \
 oh-my-zsh-git \
 oh-my-zsh-powerline-theme-git \
@@ -124,8 +193,10 @@ wofi-emoji
 ### Flatpak Pkgs
 ```
 flatpak install \
+io.github.kolunmi.Bazaar \
+io.missioncenter.MissionCenter \
 org.gnome.Calendar \
-io.missioncenter.MissionCenter
+org.kde.kamoso
 ```
 
 ### Extra pkgs
