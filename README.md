@@ -111,7 +111,18 @@ monitor=,preferred,auto,1
 if you dont need auto rotate functionality  
 
 9. On Screen Keyboard   
-- I use `squeekboard`. Enable it by command   
+- I use `wvkbd`.   
+Launch with
+```
+wvkbd-mobintl -L 300 # -L 300 is the height of keyboard on landscape mode.
+```
+- There is another keyboard `squeekboard`. It is pretty good but is problamatic with other input methods like fcitx5  
+To use that instead. Install squeekboard  
+```
+sudo pacman -S \
+squeekboard
+```
+And Enable it by command   
 ```
 gsettings set org.gnome.desktop.a11y.applications screen-keyboard-enabled true
 ```
@@ -119,7 +130,7 @@ then it can be launched with command
 ```
 squeekboard
 ```
-- This keyboard is problamatic with fcitx5 so i have custom waybar module to enable/disable it.
+- There is custom waybar module to enable/disable the on screen keyboard. It will try to first launch `wvkbd` and falls back to `squeekboard`.
 
 ## Dependencies
 ### Pacman pkgs
@@ -159,7 +170,6 @@ nwg-drawer \
 nwg-look \
 pacman-contrib \
 pavucontrol \
-squeekboard \
 swaync \
 ttf-hack-nerd \
 udiskie \
@@ -187,7 +197,8 @@ qt5ct-kde \
 qt6ct-kde \
 waybar-updates \
 waypaper \
-wofi-emoji
+wofi-emoji \
+wvkbd
 ```
 
 ### Flatpak Pkgs
