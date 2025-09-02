@@ -1,0 +1,43 @@
+@import 'colors.css';
+window {
+    background-color: @background;
+    color: @on_primary_container;
+}
+
+/* search entry */
+entry {
+    background-color: @primary_container;
+    color: @on_primary_container;
+}
+
+button, image {
+    background: none;
+    border-radius: 5px;
+    color: @on_primary_container;
+}
+
+button:hover {
+    background-color: @primary_container;
+}
+
+/* in case you wanted to give category buttons a different look */
+#category-button {
+    margin: 0 10px 0 10px
+}
+
+#pinned-box {
+    padding-bottom: 5px;
+    border-bottom: 1px dotted gray
+}
+
+#files-box {
+    padding: 5px;
+    border: 1px dotted gray;
+    border-radius: 15px
+}
+
+/* math operation result label */
+#math-label {
+    font-weight: bold;
+    font-size: 16px
+}
