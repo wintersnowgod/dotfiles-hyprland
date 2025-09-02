@@ -22,7 +22,7 @@
   "fit-to-screen": false,
   "relative-timestamps": true,
   "control-center-width": 400,
-  "control-center-height": 740,
+  "control-center-height": 1000,
   "notification-window-width": 400,
   "keyboard-shortcuts": true,
   "notification-grouping": true,
@@ -33,10 +33,13 @@
   "text-empty": "No Notifications",
   "script-fail-notify": true,
   "widgets": [
+    "menubar#label",
+    "mpris",
+    "backlight",
+    "volume",
     "inhibitors",
     "title",
     "dnd",
-    "mpris",
     "notifications"
   ],
   "widget-config": {
@@ -58,6 +61,59 @@
       "autohide": false,
       "show-album-art": "always",
       "loop-carousel": false
+    },
+    "backlight":{
+      "label": "󰃠",
+      "min": 20
+    },
+    "volume":{
+      "label": ""
+    },
+    "menubar#label": {
+      "menu#power-buttons": {
+        "label": "",
+        "position": "right",
+        "actions": [
+          {
+            "label": " Lock",
+            "command": "hyprlock &"
+          },
+          {
+            "label": "󰒲 Sleep",
+            "command": "systemctl suspend"
+          },
+          {
+            "label": " Logout",
+            "command": "hyprctl dispatch exit"
+          },
+          {
+            "label": " Reboot",
+            "command": "systemctl reboot"
+          },
+          {
+            "label": " Shut down",
+            "command": "systemctl poweroff"
+          }
+        ]
+      },
+        "menu#powermode-buttons": {
+        "label": "󱠴",
+        "position": "left",
+        "actions": [
+          {
+            "label": "Performance",
+            "command": "powerprofilesctl set performance"
+          },
+          {
+            "label": "Balanced",
+            "command": "powerprofilesctl set balanced"
+          },
+          {
+            "label": "Power-saver",
+            "command": "powerprofilesctl set power-saver"
+          }
+        ]
+      }
     }
   }
 }
