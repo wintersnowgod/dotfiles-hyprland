@@ -35,8 +35,6 @@
   "widgets": [
     "menubar#label",
     "mpris",
-    "backlight",
-    "volume",
     "inhibitors",
     "title",
     "dnd",
@@ -61,13 +59,6 @@
       "autohide": false,
       "show-album-art": "always",
       "loop-carousel": false
-    },
-    "backlight":{
-      "label": "󰃠",
-      "min": 20
-    },
-    "volume":{
-      "label": ""
     },
     "menubar#label": {
       "menu#power-buttons": {
