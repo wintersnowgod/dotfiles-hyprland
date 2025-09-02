@@ -1,7 +1,7 @@
 {
 	"custom/menu": {
 		"format": "󰣇",
-		"on-click": "nwg-drawer",
+		"on-click": "~/.config/waybar/scripts/drawer.sh -l",
 		"tooltip-format": "Show App Menu"
 	},
 
@@ -203,12 +203,14 @@
 		"drawer": {
 			"children-class": "audio-child",
 			"transition-duration": 500,
-			"transition-left-to-right": true
+			"transition-left-to-right": true,
+			"click-to-reveal": true
 		},
 		"modules": [
 			"wireplumber#sink",
 			"pulseaudio/slider",
-			"wireplumber#source"
+			"wireplumber#source",
+			"custom/audiosettings"
 		]
 	},
 	"pulseaudio/slider": {
@@ -232,8 +234,8 @@
 			"default": ["", "", ""]
 		},
 		"max-volume": 100,
-		"on-click": "wpctl set-mute @DEFAULT_SINK@ toggle",
-		"on-click-right": "pavucontrol -t 3"
+//		"on-click": "wpctl set-mute @DEFAULT_SINK@ toggle",
+//		"on-click-right": "pavucontrol -t 3"
 	},
 	"wireplumber#source": {
 		"node-type": "Audio/Source",
@@ -244,7 +246,12 @@
 		"format-icons": [ "" ] ,
 		"max-volume": 100,
 		"on-click": "wpctl set-mute @DEFAULT_SOURCE@ toggle",
-		"on-click-right": "pavucontrol -t 4"
+//		"on-click-right": "pavucontrol -t 4"
+	},
+	"custom/audiosettings": {
+		"format": "",
+		"on-click": "pavucontrol -t 1",
+		"tooltip-format": "Open Audio settings"
 	},
 
 // Battery
@@ -341,7 +348,8 @@
 		"drawer": {
 			"children-class": "brightness-child",
 			"transition-duration": 500,
-			"transition-left-to-right": true
+			"transition-left-to-right": true,
+			"click-to-reveal": true
 		},
 		"modules": [
 			"backlight",
@@ -422,12 +430,12 @@
 		"escape": true
 	},
 	//on-screen-keyboard
-	"custom/keyboard": {
+	"custom/onscreenkeyboard": {
 		"format": "{}",
 		"signal": 15,
 		"interval": "once",
 		"return-type": "json",
-		"on-click": "/home/rosl/.config/waybar/scripts/keyboard.sh toggle",
-		"exec": "/home/rosl/.config/waybar/scripts/keyboard.sh"
+		"on-click": "~/.config/waybar/scripts/on-screen-keyboard.sh -t",
+		"exec": "~/.config/waybar/scripts/on-screen-keyboard.sh"
 	}
 }

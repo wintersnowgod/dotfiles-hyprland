@@ -24,7 +24,7 @@
     "modules-right": [
         "privacy",
         "custom/updates",
-        "custom/keyboard",
+        "custom/onscreenkeyboard",
         "idle_inhibitor",
         "custom/clipboard",
         "tray",

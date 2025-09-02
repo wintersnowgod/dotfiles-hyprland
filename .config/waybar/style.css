@@ -48,8 +48,8 @@ window#waybar {
 }
 
 /* Right modules */
-#custom-keyboard,
 #custom-updates,
+#custom-onscreenkeyboard,
 #privacy,
 #idle_inhibitor,
 #custom-clipboard,
@@ -72,7 +72,7 @@ window#waybar {
 
 /* Hover effect for right-side modules */
 #custom-updates:hover,
-#custom-keyboard:hover,
+#custom-onscreenkeyboard:hover,
 #idle_inhibitor:hover,
 #custom-clipboard:hover,
 #mpris:hover,
@@ -222,7 +222,7 @@ window#waybar.empty #window {
  * On screen keyboard
  * ----------------------------------------------------- */
 
-#custom-keyboard {
+#custom-onscreenkeyboard {
   padding: 0px 10px 0px 6px;
 }
 
@@ -307,7 +307,11 @@ color: purple;
 #wireplumber.sink.muted, #wireplumber.source.muted {
   color: @error;
 }
-
+#custom-audiosettings {
+  color:@primary;
+  padding: 0px 10px 0px 6px;
+  margin: 0px 5px 0px 0px;
+}
 /* -----------------------------------------------------
  * PulseAudio Slider
  * ----------------------------------------------------- */
