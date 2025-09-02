@@ -50,7 +50,7 @@ flatpak override --user \
 --filesystem=~/.themes:ro \
 --filesystem=~/.local/share/themes:ro
 ```
-4. I use `tuned-ppd` for power management. You can substitute it with `power-profiles-daemon`.  
+4. I use `power-profiles-daemon` for power management. You can substitute it with `tuned-ppd`.But then the waybar powerprofile module and swaync powerprofile module wont work.  
     
 5. There is user.js file in .mozilla folder. There are some tweaks I like to use. If you want you can copy that to your firefox profile folder ie `~/.mozilla/(your profile)/user.js`.  
   
@@ -147,6 +147,7 @@ hyprpolkitagent \
 hyprshot \
 hyprsunset \
 papirus-icon-theme \
+power-profiles-daemon \
 xdg-desktop-portal-hyprland \
 xdg-desktop-portal-gtk \
 kate \
@@ -161,7 +162,6 @@ pavucontrol \
 squeekboard \
 swaync \
 ttf-hack-nerd \
-tuned-ppd \
 udiskie \
 waybar \
 wofi \
@@ -196,7 +196,7 @@ flatpak install \
 io.github.kolunmi.Bazaar \
 io.missioncenter.MissionCenter \
 org.gnome.Calendar \
-org.kde.kamoso
+org.gnome.Snapshot
 ```
 
 ### Extra pkgs
