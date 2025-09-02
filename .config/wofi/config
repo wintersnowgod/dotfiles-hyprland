@@ -3,3 +3,4 @@ allow_images=true
 insensitive=true
 close_on_focus_loss=false
 prompt=search
+normal_window=false
