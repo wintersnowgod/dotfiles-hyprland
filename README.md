@@ -25,8 +25,17 @@ matugen image $(hyprctl hyprpaper listloaded)
 ```
   If this command doesnot work then replace `$(hyprctl hyprpaper listloaded)` with path to your wallpaper.  
   
-2. If you want to use kde over gtk for file chooser portal then you can replace `xdg-desktop-portal-gtk` with `xdg-desktop-portal-kde`.  
-  
+2. For theming of flatpak qt apps i use `plasma-workspace` pkg. It auto pulls `xdg-desktop-portal-kde` pkg.
+If you want to use gtk over kde for portals for eg file chooser then you can install `xdg-desktop-portal-gtk`.  
+Then edit the file `~/.config/xdg-desktop-portal/hyprland-portals.conf`  
+so there is
+```
+[preferred]
+default=hyprland;gtk;kde
+org.freedesktop.impl.portal.FileChooser=gtk;kde
+```
+or just replace its contents with above. And reboot.
+
 3. For theming of gtk apps in flatpak do this command  
 - For system wide flatpak apps  
 ```
@@ -50,6 +59,25 @@ flatpak override --user \
 --filesystem=~/.themes:ro \
 --filesystem=~/.local/share/themes:ro
 ```
+
+For theming of flatpak qt apps i use `plasma-workspace` pkg. It auto pulls `xdg-desktop-portal-kde` pkg.
+- For system wide flatpak apps  
+```
+sudo flatpak override \
+--filesystem=~/.config/kdeglobals:ro \
+--env=QT_QPA_PLATFORMTHEME=kde \
+--env=QT_STYLE_OVERRIDE=Darkly
+```
+- For User flatpak apps  
+```
+flatpak override --user \
+--filesystem=~/.config/kdeglobals:ro \
+--env=QT_QPA_PLATFORMTHEME=kde \
+--env=QT_STYLE_OVERRIDE=Darkly
+```
+
+Then it should pickup matugen color profiles.
+
 4. I use `power-profiles-daemon` for power management. You can substitute it with `tuned-ppd`.But then the waybar powerprofile module and swaync powerprofile module wont work.  
     
 5. There is user.js file in .mozilla folder. There are some tweaks I like to use. If you want you can copy that to your firefox profile folder ie `~/.mozilla/(your profile)/user.js`.  
@@ -160,7 +188,6 @@ hyprsunset \
 papirus-icon-theme \
 power-profiles-daemon \
 xdg-desktop-portal-hyprland \
-xdg-desktop-portal-gtk \
 kate \
 kio-admin \
 kitty \
@@ -170,6 +197,7 @@ nwg-drawer \
 nwg-look \
 pacman-contrib \
 pavucontrol \
+plasma-workspace \
 swaync \
 ttf-hack-nerd \
 udiskie \
