@@ -436,7 +436,11 @@
 	},
 	//on-screen-keyboard
 	"custom/onscreenkeyboard": {
-		"format": "{}",
+		"format": "{icon}",
+		"format-icons": {
+			"on": "󰌌",
+			"off": "󰌐"
+		},
 		"signal": 15,
 		"interval": "once",
 		"return-type": "json",
