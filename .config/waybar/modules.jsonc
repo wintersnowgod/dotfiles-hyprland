@@ -398,8 +398,8 @@
 			"updated": ""
 		},
 		"exec-if": "which waybar-updates",
- 		"exec": "waybar-updates --flatpak --devel --notify --tooltip {}",
-		"on-click": "$HOME/.config/waybar/scripts/update.sh"
+		"exec": "waybar-updates --devel --flatpak --notify --tooltip {}",
+		"on-click": "~/.config/waybar/scripts/update.sh"
 	},
 
 	"custom/clipboard":{
