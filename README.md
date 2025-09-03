@@ -61,6 +61,9 @@ flatpak override --user \
 ```
 
 For theming of flatpak qt apps i use `plasma-workspace` pkg. It auto pulls `xdg-desktop-portal-kde` pkg.
+Then install `org.kde.kStyle.Darkly` flatpak pkg from the repo
+https://github.com/wintersnowgod/org.kde.kStyle.Darkly
+Follow the install instructions for this from there.
 - For system wide flatpak apps  
 ```
 sudo flatpak override \
