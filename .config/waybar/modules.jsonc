@@ -378,11 +378,15 @@
 		"smooth-scrolling-threshold": 1
 	},
 	"custom/hyprsunset": {
-		"format": "{}",
-		"signal": 10,
+		"format": "{icon}",
+		"format-icons": {
+			"on": "󱩌",
+			"off": "󰹏"
+		},
 		"interval": "once",
+		"signal": 10,
 		"return-type": "json",
-		"on-click": "/home/rosl/.config/waybar/scripts/hyprsunset.sh toggle",
+		"on-click": "/home/rosl/.config/waybar/scripts/hyprsunset.sh -t",
 		"exec": "/home/rosl/.config/waybar/scripts/hyprsunset.sh"
     },
 // Custom
