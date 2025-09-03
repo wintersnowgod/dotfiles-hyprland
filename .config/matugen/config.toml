@@ -49,11 +49,12 @@ post_hook = "swaync-client -R -rs"
 pre_hook = 'pkill -f nwg-dock-hyprland'
 input_path = '~/.config/matugen/templates/colors.css'
 output_path = '~/.config/nwg-dock-hyprland/colors.css'
-post_hook = 'nohup nwg-dock-hyprland -d -hd 500 -i 48 -lp start -c "wofi --show drun --width 40% --height 60% -x 500 -y 300" -p bottom -a center -ico "/usr/share/icons/Papirus-Dark/64x64/categories/distributor-logo-archlinux.svg" > /dev/null 2>&1 &'
+post_hook = 'nohup ~/.config/waybar/scripts/dock.sh -l > /dev/null 2>&1 &'
 
 [templates.color-scheme]
 input_path = '~/.config/matugen/templates/Matugen.colors'
 output_path = '~/.local/share/color-schemes/Matugen.colors'
+"post_hook" = 'plasma-apply-colorscheme Darkly && plasma-apply-colorscheme Matugen'
 
 [templates.qt5ct]
 input_path = '~/.config/matugen/templates/qtct-colors.conf'
