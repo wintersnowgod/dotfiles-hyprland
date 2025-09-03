@@ -1,3 +1,8 @@
 #!/bin/bash
-#$(cat ~/.config/waybar/scripts/terminal.sh) -e htop
-flatpak run io.missioncenter.MissionCenter
+TERMINAL=$(< ~/.config/waybar/scripts/terminal.sh)
+
+missioncenter \
+  || flatpak run io.missioncenter.MissionCenter \
+  || $TERMINAL -e htop \
+  || $TERMINAL -e bashtop \
+  || $TERMINAL -e btop
