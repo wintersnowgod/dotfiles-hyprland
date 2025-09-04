@@ -11,7 +11,7 @@ toggle() {
 }
 
 case "$1" in
-  -t|--toggle)
+  -t)
     toggle
     sleep 0.1
     ;;
