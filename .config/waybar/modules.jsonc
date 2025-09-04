@@ -460,9 +460,9 @@
 			"on": "󰌌",
 			"off": "󰌐"
 		},
-		"signal": 15,
 		"interval": "once",
 		"return-type": "json",
+		"exec-if": "which wvkbd-mobintl || which squeekboard",
 		"on-click": "~/.config/waybar/scripts/on-screen-keyboard.sh -t",
 		"exec": "~/.config/waybar/scripts/on-screen-keyboard.sh"
 	}
