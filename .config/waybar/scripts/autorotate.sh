@@ -3,8 +3,10 @@ toggle () {
     if command -v iio-hyprland >/dev/null; then
         if pgrep -x iio-hyprland >/dev/null; then
             pkill -x iio-hyprland
+            notify-send -t 700 "Autorotate off"
         else
             setsid iio-hyprland >/dev/null 2>&1 &
+            notify-send -t 700 "Autorotate on"
         fi
     fi
 }
