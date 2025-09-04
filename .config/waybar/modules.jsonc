@@ -367,7 +367,8 @@
 		"modules": [
 			"backlight",
 			"backlight/slider",
-			"custom/hyprsunset"
+			"custom/hyprsunset",
+			"custom/autorotate"
 		]
 	},
 	"backlight/slider": {
@@ -396,11 +397,22 @@
 			"off": "󰹏"
 		},
 		"interval": "once",
-		"signal": 10,
 		"return-type": "json",
 		"exec-if": "which hyprsunset",
 		"on-click": "/home/rosl/.config/waybar/scripts/hyprsunset.sh -t",
 		"exec": "/home/rosl/.config/waybar/scripts/hyprsunset.sh"
+    },
+	"custom/autorotate": {
+		"format": "{icon}",
+		"format-icons": {
+			"on": "󰢅",
+			"off": "󰆠"
+		},
+		"interval": "once",
+		"return-type": "json",
+		"exec-if": "which iio-hyprland",
+		"on-click": "/home/rosl/.config/waybar/scripts/autorotate.sh -t",
+		"exec": "/home/rosl/.config/waybar/scripts/autorotate.sh"
     },
 // Custom
 	"custom/updates": {
