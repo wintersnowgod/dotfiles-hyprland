@@ -5,7 +5,7 @@ open_history() {
 
 clear_history() {
     cliphist wipe
-    notify-send "Clipboard history cleared"
+    notify-send -t 700 "Clipboard history cleared"
 }
 
 case "$1" in
@@ -13,6 +13,8 @@ case "$1" in
         open_history
         ;;
     -c)
-    clear_history
-    ;;
+        clear_history
+        ;;
 esac
+
+echo '{"alt":"default"}'
