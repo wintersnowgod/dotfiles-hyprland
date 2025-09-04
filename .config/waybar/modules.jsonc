@@ -398,6 +398,7 @@
 		"interval": "once",
 		"signal": 10,
 		"return-type": "json",
+		"exec-if": "which hyprsunset",
 		"on-click": "/home/rosl/.config/waybar/scripts/hyprsunset.sh -t",
 		"exec": "/home/rosl/.config/waybar/scripts/hyprsunset.sh"
     },
