@@ -1,6 +1,18 @@
 {
 	"custom/menu": {
-		"format": "󰣇",
+		"format": "{icon}",
+		"format-icons": {
+			"arch": "󰣇",
+			"debian": "",
+			"ubuntu": "",
+			"mint": "󰣭",
+			"pop": "",
+			"default": ""
+		},
+		"return-type": "json",
+		"interval": "once",
+		"exec-if": "which nwg-drawer",
+		"exec":"~/.config/waybar/scripts/drawer.sh",
 		"on-click": "~/.config/waybar/scripts/drawer.sh -l",
 		"tooltip-format": "Show App Menu"
 	},
