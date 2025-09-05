@@ -84,16 +84,6 @@
 		"on-click-right": "~/.config/waybar/scripts/calendar.sh"
 	},
 
-	"idle_inhibitor": {
-		"format": "{icon}",
-		"format-icons": {
-			"activated": " ",
-			"deactivated": " "
-		},
-		"tooltip-format-activated": "Inhibit Sleep: {status}",
-		"tooltip-format-deactivated": "Inhibit Sleep: {status}"
-	},
-
 	"bluetooth": {
 		"format": "",
 		"format-on": "",
@@ -276,9 +266,19 @@
 		},
 		"modules": [
 			"battery",
+			"idle_inhibitor",
 			"power-profiles-daemon"
 
 		]
+	},
+	"idle_inhibitor": {
+		"format": "{icon}",
+		"format-icons": {
+			"activated": " ",
+			"deactivated": " "
+		},
+		"tooltip-format-activated": "Inhibit Sleep: {status}",
+		"tooltip-format-deactivated": "Inhibit Sleep: {status}"
 	},
 	"power-profiles-daemon": {
 		"format": "{icon}",

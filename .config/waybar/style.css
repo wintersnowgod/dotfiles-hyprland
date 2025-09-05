@@ -51,7 +51,6 @@ window#waybar {
 #custom-updates,
 #custom-onscreenkeyboard,
 #privacy,
-#idle_inhibitor,
 #custom-clipboard,
 #tray,
 #mpris,
@@ -73,7 +72,6 @@ window#waybar {
 /* Hover effect for right-side modules */
 #custom-updates:hover,
 #custom-onscreenkeyboard:hover,
-#idle_inhibitor:hover,
 #custom-clipboard:hover,
 #mpris:hover,
 #audio:hover,
@@ -209,7 +207,7 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #custom-updates {
-    padding: 0px 2px 0px 4px;
+    padding: 0px 12px 0px 8px;
 }
 @keyframes blink-update {
   to { color: @tertiary; }
@@ -224,18 +222,6 @@ window#waybar.empty #window {
 
 #custom-onscreenkeyboard {
   padding: 0px 10px 0px 6px;
-}
-
-/* -----------------------------------------------------
- * Idle Inhibitor
- * ----------------------------------------------------- */
-#idle_inhibitor {
-    padding: 0px 6px 0px 6px;
-}
-#idle_inhibitor.activated {
-    font-weight: bold;
-    opacity: 1.0;
-    color: @tertiary;
 }
 
 /* -----------------------------------------------------
@@ -420,7 +406,19 @@ color: purple;
  * ----------------------------------------------------- */
 
 #power-profiles-daemon {
-  padding: 0px 0px 0px 15px;
+  padding: 0px 0px 0px 6px;
+}
+
+/* -----------------------------------------------------
+ * Idle Inhibitor
+ * ----------------------------------------------------- */
+#idle_inhibitor {
+    padding: 0px 6px 0px 6px;
+}
+#idle_inhibitor.activated {
+    font-weight: bold;
+    opacity: 1.0;
+    color: @tertiary;
 }
 
 /* -----------------------------------------------------
