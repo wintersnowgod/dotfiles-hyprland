@@ -4,7 +4,9 @@
 # Config: Set your AUR helper here (paru, yay, or empty if none)
 AUR_HELPER="yay"
 # {} is AUR_HELPER leave it unchanged. just add the required flags after it
-AUR_UPGRADE_CMD="{} -Sua --needed --answerupgrade None --answerclean All --answerdiff None --noremovemake --cleanafter --sudoloop --noconfirm --mflags \"--noconfirm\""
+AUR_UPGRADE_CMD_YAY='{} -Sua --needed --devel --answerupgrade None --answerclean All --answerdiff None --noremovemake --cleanafter --sudoloop --noconfirm --mflags \"--noconfirm\"'
+
+AUR_UPGRADE_CMD="$AUR_UPGRADE_CMD_YAY"
 
 # Colors for output
 RED='\033[31m'
