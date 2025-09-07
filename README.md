@@ -1,6 +1,9 @@
 # dotfiles-hyprland  
 My dotfiles for hyprland in Arch Linux  
 
+# UNMAINTAINED FOR NOW
+I switched to kde so for now this repo is unmaintained. IDK if I will come back to it in the future.
+
 ## Preview  
 <p align="center">
   <img src="Images/Screenshot.png" alt="Screenshot" width="100%"/>
