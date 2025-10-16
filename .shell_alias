@@ -56,45 +56,17 @@ if ! command -v gitinfo >/dev/null 2>&1; then alias gitinfo='echo "r$(git rev-li
 if ! command -v srcinfo >/dev/null 2>&1; then alias srcinfo='if [[ -f PKGBUILD ]]; then makepkg --printsrcinfo > .SRCINFO; else echo "No PKGBUILD file found!"; fi'; fi
 if ! command -v fixchecksum >/dev/null 2>&1; then alias fixchecksum='if [[ -f PKGBUILD ]]; then makepkg -g >> PKGBUILD; else echo "No PKGBUILD file found!"; fi'; fi
 
-# Check owner of package
+# Check owner of file
 if ! command -v owner >/dev/null 2>&1; then alias owner='pacman -Qo'; fi
 
-# Search packages
-if ! command -v s >/dev/null 2>&1; then if command -v "yay" >/dev/null 2>&1; then alias s='yay -Ss'; else alias s="pacman -Ss"; fi; fi
-if ! command -v si >/dev/null 2>&1; then if command -v "yay" >/dev/null 2>&1; then alias si='yay -Si'; else alias si="pacman -Si"; fi; fi
-
-# Search installed Packages
-if ! command -v q >/dev/null 2>&1; then alias q='pacman -Q | grep'; fi
-if ! command -v qe >/dev/null 2>&1; then alias qe='pacman -Qe | grep'; fi
-if ! command -v qq >/dev/null 2>&1; then alias qq='pacman -Qq | grep'; fi
-if ! command -v qs >/dev/null 2>&1; then alias qs='pacman -Qs'; fi
-if ! command -v qi >/dev/null 2>&1; then alias qi='pacman -Qi'; fi
-if ! command -v lf >/dev/null 2>&1; then alias lf='flatpak list --columns=application --app | grep -v "Appkication ID"'; fi
-
-# List orphans
-if ! command -v orphan >/dev/null 2>&1; then alias orphan='pacman -Qdtq | grep -v debug'; fi
-if ! command -v orphand >/dev/null 2>&1; then alias orphand='pacman -Qdtq | grep debug'; fi
-
-#check updates
-if ! command -v checkupdatesyay >/dev/null 2>&1; then alias checkupdatesyay='yay -Qu --devel'; fi
-
-# Upgrade/Install packages
-if ! command -v uwu >/dev/null 2>&1; then if command -v "yay" >/dev/null 2>&1; then alias uwu='"yay" --needed --answerupgrade None --answerclean All --answerdiff None --noremovemake --cleanafter --sudoloop --noconfirm --mflags "--noconfirm"'; else alias uwu='sudo pacman -Syu'; fi; fi
-if ! command -v uwu-devel >/dev/null 2>&1; then if command -v "yay" >/dev/null 2>&1; then alias uwu-devel='"yay" --needed --answerupgrade None --answerclean All --answerdiff None --noremovemake --cleanafter --devel --sudoloop --noconfirm --mflags "--noconfirm"'; fi; fi
-if ! command -v uwu-nc >/dev/null 2>&1; then if command -v "yay" >/dev/null 2>&1; then alias uwu-nc='"yay" --needed --answerupgrade None --answerclean All --answerdiff None --noremovemake --cleanafter --devel --sudoloop --noconfirm --mflags "--noconfirm --nocheck"'; fi; fi
-if ! command -v uwu-nc-devel >/dev/null 2>&1; then if command -v "yay" >/dev/null 2>&1; then alias uwu-nc-devel='"yay" --needed --answerupgrade None --answerclean All --answerdiff None --noremovemake --cleanafter --devel --sudoloop --noconfirm --mflags "--noconfirm --nocheck"'; fi; fi
-
-#generate git database
-if ! command -v "yaygitdatagen" >/dev/null 2>&1; then alias yaygitdatagen="yay -Y --gendb"; fi
-
 # Uninstall packages
-if ! command -v fuck >/dev/null 2>&1; then if command -v "yay" >/dev/null 2>&1; then alias fuck='yay -Rns'; else alias fuck='sudo pacman -Rns'; fi; fi
+if ! command -v fuck >/dev/null 2>&1; then alias fuck='sudo pacman -Rns'; fi
 
 #pacdiff
 if ! command -v pdiff >/dev/null 2>&1; then alias pdiff='pacdiff -o'; fi
 
 # Clean PKG Cache
-if ! command -v cleanpkg >/dev/null 2>&1; then if command -v "yay" >/dev/null 2>&1; then alias cleanpkg='yes | yay -Scc'; else alias cleanpkg='yes | sudo pacman -Scc'; fi; fi
+if ! command -v cleanpkg >/dev/null 2>&1; then alias cleanpkg='cleanpkg'; fi
 
 # Show bash history
 if ! command -v his >/dev/null 2>&1; then alias his='history | grep'; fi
