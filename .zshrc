@@ -116,3 +116,5 @@ bindkey -v
 [[ -f "$HOME/.shell_mod" ]] && . "$HOME/.shell_mod"
 
 source ~/.zsh-custom/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+
+. "$HOME/.cargo/env"
