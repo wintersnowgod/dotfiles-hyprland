@@ -33,7 +33,7 @@ if command -v fcitx5 >/dev/null 2>&1; then
 fi
 
 # PATH (Add more path after like this export PATH=$PATH:"path1":"path2":"path3")
-export PATH=$PATH:"$HOME/ForinRosl/Linux/git/Personal/bin/":"/home/rosl/ForinRosl/Linux/git/Personal/Menu/Menu/"
+export PATH=$PATH:"$HOME/ForinRosl/Linux/git/Personal/bin":"/home/rosl/ForinRosl/Linux/git/Personal/Menu/Menu":"/home/rosl/.local/bin"
 
 # ENV
 export EDITOR='nvim'
